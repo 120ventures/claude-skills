@@ -314,30 +314,100 @@ Go through **each category** below. For every issue found, note the file, the sp
 
 **Replace these (Bundesdeutsch → Österreichisch):**
 
+**Essen & Küche** (Austrians notice these instantly):
+
 | ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
 |-----------------|-------------------|-------|
 | Kartoffel | Erdapfel | Bundesdeutsch klingt fremd |
 | Brötchen | Semmel | Sofort als "Piefke" erkennbar |
-| Tüte | Sackerl | Umgangssprache |
-| lecker | gut / gschmackig | "Lecker" = Deutschländer |
-| Junge / Mädchen | Bub / Mädl | Natürlicher |
-| dieses Jahr | heuer | Typisch österreichisch |
-| Stuhl | Sessel | Im Alltag Standard |
-| Treppe | Stiege | Regional aber verbreitet |
-| Sahne | Schlagobers / Obers | Kulinarik |
+| Sahne | Schlagobers / Obers | Kulinarik-Grundwort |
 | Quark | Topfen | Niemals Quark! |
 | Pfannkuchen | Palatschinken | Kulturell wichtig |
-| Tomate | Paradeiser | Klassisch |
+| Tomate | Paradeiser | Klassisch österreichisch |
 | Aubergine | Melanzani | Küche |
 | Aprikose | Marille | Identitätswort |
 | Hackfleisch | Faschiertes | Standard |
+| Blumenkohl | Karfiol | Sofort erkennbar |
+| Meerrettich | Kren | Klassiker |
+| Pflaumen | Zwetschken | Nicht Pflaumen! |
+| grüne Bohnen | Fisolen | Küche |
+| Hähnchen | Hendl | Würstelstand bis Heuriger |
+| Johannisbeeren | Ribisel | Sofort erkennbar |
+| Pilze | Schwammerl | Umgangssprache |
+| lecker | gut / gschmackig / fesch | "Lecker" = Deutschländer |
+| Guten Appetit | Mahlzeit / Guten Hunger | "Appetit" klingt snobbig |
+
+**Alltag & Umgangssprache:**
+
+| ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
+|-----------------|-------------------|-------|
+| Tüte | Sackerl | Umgangssprache |
+| Junge | Bub | Natürlicher |
+| Mädchen | Mädl / Madl | Natürlicher |
+| dieses Jahr | heuer | Typisch österreichisch |
+| Stuhl | Sessel | Im Alltag Standard |
+| Treppe | Stiege | Regional aber verbreitet |
+| Schrank | Kasten | Alltagssprache |
+| Bürgersteig | Gehsteig | Standard in AT |
+| Aufzug | Lift | Gängiger |
+| Fahrrad | Rad | "Fahrrad" klingt umständlich |
+| Geldautomat | Bankomat | Markenname, aber Standard |
+| Abitur | Matura | Bildungssystem |
+| Klausur / Prüfung | Schularbeit / Prüfung | Schulkontext |
+| gucken / schauen | schauen | "Gucken" = norddeutsch |
+| reden / sprechen | reden / plaudern | "Plaudern" = gemütlich |
+| anrufen | anrufen / anläuten | "Anläuten" = umgangssprachlich |
+| sauer / wütend | grantig / bös | Emotionaler |
+
+**Papierkram, Büro & Verwaltung:**
+
+| ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
+|-----------------|-------------------|-------|
+| Papierkram | Papierkrieg / Bürokratie | "Papierkram" = norddeutsch |
+| Beglaubigung | Beglaubigung / Vidimierung | Amtsdeutsch AT |
+| Personalausweis | Personalausweis / Ausweis | OK, aber "Ausweis" kürzer |
+| Führerschein | Führerschein / Schein | Gleich, aber "Schein" umgangssprachlich |
+| Krankenhaus | Krankenhaus / Spital | "Spital" = typisch AT |
+| Rechtsanwalt | Rechtsanwalt / Anwalt | OK, AT sagt auch "Advokat" (gehoben) |
+| Buchhaltung | Buchhaltung | Gleich, aber AT: "Steuerberater" häufiger |
+| Ordner (Büro) | Ordner / Mappe | "Mappe" für dünne Ordner |
+| Quittung | Bon / Rechnung | "Quittung" = klingt nach Finanzamt |
+| Formular | Formular / Zettel | "An Zettel ausfüllen" = umgangssprachlich |
+
+**Digital & Marketing-Kontext** (relevant für UX Copy):
+
+| ❌ Bundesdeutsch / Anglizismus | ✅ Österreichisch / Besser | Warum |
+|-------------------------------|---------------------------|-------|
+| Startseite | Startseite | OK — gleich |
+| Benutzerkonto | Konto / Account | "Benutzerkonto" = umständlich |
+| Passwort vergessen | Passwort vergessen | OK — gleich |
+| Anmelden | Anmelden / Einloggen | Beides OK in AT |
+| Zahlungsweise | Zahlungsart | "Zahlungsweise" = bürokratisch |
+| Versandkosten | Versandkosten / Zustellkosten | "Zustellung" = AT-Post-Sprache |
+| Rückerstattung | Rückerstattung / Gutschrift | "Gutschrift" = freundlicher |
+| Lieferzeit | Lieferzeit / Zustellzeit | "Zustellung" für AT |
+| Kundenservice | Kundenservice / Kundendienst | Beides OK |
+
+**Grüße & Höflichkeit:**
+
+| ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
+|-----------------|-------------------|-------|
+| Hallo | Servus / Grüß Gott | "Hallo" = neutral, aber nicht AT-typisch |
+| Tschüss | Pfiat di / Baba / Servus | "Tschüss" = norddeutsch |
+| Vielen Dank | Danke / Dankschön | "Vielen Dank" = zu formell für digital |
+| Gern geschehen | Gern gschehn / Bitte | Kürzer |
+| Ich bin satt | I bin stad | "Satt" = ungewöhnlich in AT |
+| Entschuldigung | Entschuldigung / Tschuldigung | Gleich, aber kürzer |
 
 **Check for:**
 - Any Bundesdeutsch vocabulary that would sound "piefkinesisch" in Austria
 - Food/kitchen terms especially (Austrians notice these instantly)
+- Administrative/bureaucratic terms that sound German-German
+- Digital UX copy that uses unnecessarily stiff alternatives
+- Greetings and pleasantries that don't match Austrian convention
 - Regional terms that feel wrong for the target audience's geography
 
-**Fix pattern:** Replace with Austrian equivalent. When in doubt, use the word your Wiener Nachbarin would use, not the one from a Hamburg textbook.
+**Fix pattern:** Replace with Austrian equivalent. When in doubt, use the word your Wiener Nachbarin would use, not the one from a Hamburg textbook. For digital products: lean toward the modern Austrian educated register — not dialect, not Bundesdeutsch, not Amt.
 
 ---
 
