@@ -1,5 +1,5 @@
 ---
-name: copy-audit
+name: at-copy-audit
 description: Audit UX copy quality — clarity, tone, persuasion structure, microcopy, and Austrian German localization
 ---
 
@@ -7,13 +7,13 @@ description: Audit UX copy quality — clarity, tone, persuasion structure, micr
 
 This skill audits all user-facing copy for clarity, persuasion structure, tone, microcopy quality, and Austrian German authenticity. It identifies weak, unclear, or culturally mismatched copy and fixes it directly in the codebase.
 
-No arguments needed. Just run `/copy-audit` and the skill scans the project automatically.
+No arguments needed. Just run `/at-copy-audit` and the skill scans the project automatically.
 
 **Difference from other audits:**
 - `/ux-audit` checks **behavioral outcomes** — decision-making, cognition, system feedback
 - `/ui-audit` checks **visual implementation** — spacing, typography, color, consistency
 - `/cro-audit` checks **conversion structure** — trust placement, funnel narrative, persuasion psychology
-- `/copy-audit` checks **the words themselves** — clarity, tone, benefits framing, microcopy, Austrian localization
+- `/at-copy-audit` checks **the words themselves** — clarity, tone, benefits framing, microcopy, Austrian localization
 
 Reference sources:
 - Joanna Wiebe / Copyhackers: conversion copywriting
