@@ -1,6 +1,6 @@
 # 120 Ventures — Claude Code Skills
 
-A shared collection of [Claude Code](https://claude.ai/code) skills we use across all 120 Ventures projects. Instead of repeating the same setup steps, audit checklists, and boilerplate generation in every project, we captured them as reusable skills that any team member can run with a single slash command.
+A shared collection of [Claude Code](https://claude.ai/code) skills we use across all 120 Ventures projects. Instead of repeating the same setup steps, audit checklists etc. in every project, we captured them as reusable skills that any team member can run with a single slash command.
 
 ## Who is this for?
 
