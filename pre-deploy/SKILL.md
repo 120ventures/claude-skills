@@ -14,14 +14,16 @@ Run a full pre-deployment validation on the current project.
 
 ### 1. TypeScript
 - Run `npx tsc --noEmit` — report any type errors
-- Check for `any` types in `src/` that should be properly typed
+- Search for explicit `any` in `src/` (excluding `node_modules`, `*.d.ts`, and third-party types). Flag only project code — use `unknown`, concrete types, or generics instead. Ignore `any` inside `// eslint-disable` comments.
 
-### 2. Build
+### 2. Linting (CRITICAL — CI blocks on this)
+- Run `npm run lint` — any errors or warnings are a **FAIL**
+- ESLint errors break the CI build, so this must pass before anything else
+- Common offenders: `no-explicit-any`, empty interfaces, unused imports
+
+### 3. Build
 - Run `npm run build` — does it succeed without errors?
 - Check for build warnings
-
-### 3. Linting
-- Run `npm run lint` — any ESLint errors?
 
 ### 4. Environment Variables
 - Read `.env.example` — list all required variables

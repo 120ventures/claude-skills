@@ -170,7 +170,7 @@ All tags below that track user data must have **Consent Mode requirement: `analy
 **3. GTM to Analytics (GA4 Pageview)**
 - **Type:** Google Tag (`googtag`)
 - **Tag ID:** the GA4 Measurement ID variable
-- **Fires on:** Consent Initialization - All Pages
+- **Fires on:** All Pages (NOT Consent Initialization — the init trigger fires too early for GA4 to receive valid page data)
 - **Consent required:** `analytics_storage = granted`
 
 **4. Meta Pixel — Pageview**
@@ -245,7 +245,56 @@ Replace `GTM_ID_HERE` with the actual GTM Container ID from the arguments.
 
 ---
 
-## Step 4: Summary
+## Step 4: Cookie Consent Banner Integration
+
+After generating the GTM container and wiring up dataLayer, check if the project already has a cookie consent banner.
+
+### If a cookie consent banner EXISTS:
+
+Search the codebase for cookie consent components (e.g. `CookieConsent`, `CookieBanner`, `consent`). Verify:
+
+1. **The consent update event name matches the GTM trigger exactly.** The GTM container expects the event `consent_update`. If the banner fires a different event name (e.g. `cookie_consent_update`, `consent_granted`, etc.), fix it to match.
+
+2. **The `gtag('consent', 'update', ...)` call works reliably.** Do NOT rely on `window.gtag` existing — instead push directly to dataLayer:
+```typescript
+// CORRECT — always works with GTM
+window.dataLayer = window.dataLayer || [];
+function gtag(...args: unknown[]) {
+  window.dataLayer!.push(args);
+}
+gtag('consent', 'update', {
+  'analytics_storage': prefs.analytics ? 'granted' : 'denied',
+  'ad_storage': prefs.marketing ? 'granted' : 'denied',
+  'ad_user_data': prefs.marketing ? 'granted' : 'denied',
+  'ad_personalization': prefs.marketing ? 'granted' : 'denied',
+});
+
+// ALSO fire the custom event so the GTM "Consent Update" trigger fires
+window.dataLayer.push({
+  event: 'consent_update',
+  analytics_consent: prefs.analytics,
+  marketing_consent: prefs.marketing,
+});
+```
+
+3. **A floating re-open button exists** so users can change their cookie preferences after the initial choice. If not, add one — a small icon button (e.g. cookie icon) fixed to bottom-left with `z-index` below the banner but above page content.
+
+### If NO cookie consent banner exists:
+
+Create one. Requirements:
+- Three choices: "Alle akzeptieren", "Nur notwendige", "Einstellungen" (with toggles for analytics/marketing)
+- On accept/reject: store preferences in `localStorage`, call `gtag('consent', 'update', ...)` via dataLayer push, and fire `window.dataLayer.push({ event: 'consent_update' })`
+- On page load: check localStorage — if consent already given, call `gtag('consent', 'update', ...)` with saved preferences
+- Show a floating cookie icon button (bottom-left) after consent is given so users can reopen settings
+- Modal backdrop with `z-index: 9999+`
+- Must use `<Link>` to privacy policy page
+- WCAG: focus management, Escape key closes with "reject all", `aria-modal`, `role="dialog"`
+
+**CRITICAL:** The event name in `dataLayer.push({ event: '...' })` MUST be exactly `consent_update` — this is what the GTM container trigger listens for. A mismatch here means GTM never fires the consent update tag, resulting in 0% consent rate in GTM.
+
+---
+
+## Step 5: Summary
 
 After completing, tell the user:
 
@@ -254,6 +303,7 @@ Done! Here's what was set up:
 
 ✅ GTM snippet added to index.html
 ✅ dataLayer.push() wired into event tracking
+✅ Cookie consent banner integrated with Consent Mode v2
 ✅ gtm-container.json generated with:
    - Google Consent Mode v2 (default denied + update on consent)
    - GA4 pageview + [N] custom events
@@ -265,9 +315,7 @@ Next steps:
 2. Admin → Import Container → upload gtm-container.json
 3. Choose "Existing workspace" → Merge → Overwrite conflicting tags
 4. Review the imported tags, then click "Submit" → "Publish"
-5. Add a consent banner that calls:
-   window.dataLayer.push({event: 'consent_update'})
-   when the user accepts cookies/tracking
+5. Test: accept cookies, then check GTM Preview Mode — consent rate should be > 0%
 ```
 
 ---
@@ -282,3 +330,7 @@ Next steps:
 - The generated JSON must be valid GTM export format (exportFormatVersion 2)
 - **Maximum 5 custom events** — always clarify events with the user first
 - **Always ask about the conversion goal before generating anything**
+- **GA4 config tag fires on "All Pages" trigger, NOT "Consent Initialization"** — the init trigger fires too early for GA4 to receive valid page data. Only the Consent Default tag should use the init trigger.
+- **Consent update event name must be exactly `consent_update`** — this must match between the cookie banner's `dataLayer.push({ event: '...' })` and the GTM trigger. A mismatch = 0% consent rate.
+- **Always push gtag consent updates via dataLayer** — never rely on `window.gtag` existing. Use `window.dataLayer.push(arguments)` pattern instead.
+- **Always verify or create a cookie consent banner** as part of this skill — GTM Consent Mode is useless without one
