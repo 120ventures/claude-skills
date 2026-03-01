@@ -1,6 +1,6 @@
 ---
 name: security-audit
-description: Scan the current project for security issues — hardcoded secrets, missing RLS, direct DB access from frontend, unvalidated inputs, XSS risks
+description: Scan the current project for security issues — hardcoded secrets, missing RLS, direct DB access from frontend, unvalidated inputs, XSS risks, missing rate limiting, unsanitized user inputs
 context: fork
 agent: Explore
 allowed-tools: Read, Glob, Grep
@@ -58,6 +58,20 @@ Check:
 Check:
 - Is `package-lock.json` committed? (should be)
 - Any `postinstall` or `preinstall` scripts in `package.json`?
+
+### 9. Rate Limiting
+Check:
+- Do Edge Functions implement rate limiting? (e.g., per-user or per-IP request throttling)
+- Are public-facing endpoints (auth, contact forms, webhooks) protected against abuse?
+- Is there a rate limiting middleware or helper used consistently across functions?
+- Flag any endpoint without rate limiting as a warning
+
+### 10. Input Sanitization
+Check:
+- Is all user input sanitized before processing? (strip HTML, escape special characters)
+- Are database inputs parameterized or using ORM/query builders (not raw string concatenation)?
+- Are file uploads validated for type, size, and content?
+- Is user-provided content sanitized before rendering or storing?
 
 ## Output Format
 
