@@ -201,6 +201,9 @@ Der User wählt sein Lieblings-Logo. Setze es als Favicon ein.
 
 ### Phase 6: Website bauen
 
+**Requires:** The `frontend-design` plugin must be installed for this phase. Install it from the Claude Code plugin marketplace:
+https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md
+
 Sobald alle Entscheidungen getroffen sind, fasse die komplette Brand Identity zusammen:
 
 ```
