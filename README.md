@@ -1,59 +1,86 @@
 # 120 Ventures — Claude Code Skills
 
-Shared [Claude Code](https://claude.ai/code) skills for our ventures. Each skill automates a recurring task so you don't have to do it by hand.
+A shared collection of [Claude Code](https://claude.ai/code) skills we use across all 120 Ventures projects. Instead of repeating the same setup steps, audit checklists, and boilerplate generation in every project, we captured them as reusable skills that any team member can run with a single slash command.
+
+## Who is this for?
+
+Anyone on the team using Claude Code. If you're building a new venture, launching a landing page, or preparing for deployment — there's probably a skill here that saves you a few hours.
+
+## How it works
+
+Each skill is a single markdown file. You install it once (copy it to `~/.claude/skills/`), and from then on you can run it in any project by typing `/skill-name` in Claude Code. The skill reads your project, follows the instructions in the markdown file, and either audits your code, generates boilerplate, or runs a checklist — then reports findings and offers to fix issues directly.
+
+No packages. No config. No dependencies. Just a `.md` file with structured instructions.
 
 ---
 
-## Available Skills
+## Skills Overview
 
-### Quality Audits
+We have **16 skills** in 4 categories. Each one handles a specific, well-scoped task.
 
-Run these regularly to catch issues before users (or Google) do. Each audit covers a distinct layer — no overlap between them.
+### Quality Audits (8 skills)
 
-| Skill | Layer | What it checks |
-|-------|-------|---------------|
-| [ux-audit](./ux-audit) | Behavior | Cognitive load, decision-making, Nielsen's heuristics, system feedback |
-| [ui-audit](./ui-audit) | Visual | Visual hierarchy, spacing, typography, color, Gestalt grouping, consistency |
-| [cro-audit](./cro-audit) | Conversion | Trust placement, funnel flow, persuasion structure, conversion psychology |
-| [copy-audit](./copy-audit) | Words | Clarity, tone, PAS framework, microcopy, Austrian German localization |
-| [mobile-audit](./mobile-audit) | Mobile | Core Web Vitals, responsive design, touch targets, performance, navigation |
-| [a11y-audit](./a11y-audit) | Accessibility | WCAG 2.2 Level AA — contrast, keyboard nav, ARIA, semantics |
-| [legal-audit](./legal-audit) | Legal | DSGVO, ECG, FAGG, ePrivacy, cookie consent, Impressum (Austria) |
-| [security-audit](./security-audit) | Security | Hardcoded secrets, missing RLS, XSS risks, unvalidated inputs |
+The audit suite covers every layer of a web project — from the words on the page to the legal fine print. Each audit checks a distinct layer with no overlap between them, so you can run one, a few, or all eight without getting duplicate findings.
 
-### Scaffolding & Setup
+A good pre-launch workflow: run all 8 audits, fix critical issues, ship.
 
-Generate boilerplate for common project needs.
+| Skill | Layer | What it checks | When to run |
+|-------|-------|---------------|-------------|
+| [ux-audit](./ux-audit) | Behavior | Cognitive load, decision-making, Nielsen's heuristics, system feedback | After building a new flow or page |
+| [ui-audit](./ui-audit) | Visual | Visual hierarchy, spacing, typography, color, Gestalt grouping, consistency | After visual changes or new components |
+| [cro-audit](./cro-audit) | Conversion | Trust placement, funnel flow, persuasion structure, conversion psychology | Before launch or when conversion is low |
+| [copy-audit](./copy-audit) | Words | Clarity, tone, PAS framework, microcopy, Austrian German localization | After writing or updating copy |
+| [mobile-audit](./mobile-audit) | Mobile | Core Web Vitals, responsive design, touch targets, performance, navigation | Before launch (Google ranks by CWV) |
+| [a11y-audit](./a11y-audit) | Accessibility | WCAG 2.2 Level AA — contrast, keyboard nav, ARIA, semantics | Before launch and after UI changes |
+| [legal-audit](./legal-audit) | Legal | DSGVO, ECG, FAGG, ePrivacy, cookie consent, Impressum (Austria) | Before launch and quarterly |
+| [security-audit](./security-audit) | Security | Hardcoded secrets, missing RLS, XSS risks, unvalidated inputs | Before every deployment |
 
-| Skill | What it does |
-|-------|-------------|
-| [edge-function](./edge-function) | Supabase Edge Function with auth, CORS, Zod validation, error handling |
-| [setup-gtm](./setup-gtm) | GTM container + GA4 + Meta Pixel + PostHog + Consent Mode v2 + custom events |
-| [new-page](./new-page) | New page with route, lazy-loading, SEO meta, and mobile-first layout |
-| [social-sharing](./social-sharing) | OG preview image (1200x630), favicon, meta tags, Twitter cards, JSON-LD |
+**How the audits fit together:**
 
-### Workflow & CI
+```
+/ux-audit     → Does the flow work? (behavior, cognition)
+/ui-audit     → Does it look right? (pixels, spacing, visual consistency)
+/cro-audit    → Does it convert? (persuasion, trust, funnel structure)
+/copy-audit   → Are the words right? (clarity, tone, Austrian German)
+/mobile-audit → Does it work on phones? (CWV, touch, responsive)
+/a11y-audit   → Can everyone use it? (WCAG, keyboard, screen readers)
+/legal-audit  → Is it legally compliant? (DSGVO, Impressum, cookies)
+/security-audit → Is it secure? (secrets, XSS, RLS, inputs)
+```
 
-Pre-launch checks and test generation.
+### Scaffolding & Setup (4 skills)
 
-| Skill | What it does |
-|-------|-------------|
-| [pre-deploy](./pre-deploy) | Pre-deployment checklist — types, build, lint, env vars, security, git status |
-| [e2e-tests](./e2e-tests) | Generate Playwright E2E tests for a page or feature |
+Skip the boilerplate. These skills generate production-ready code for common project needs, following our conventions and stack (React + Vite + TypeScript + Tailwind + Supabase).
 
-### Brand & Strategy
+| Skill | What it generates | Example |
+|-------|------------------|---------|
+| [edge-function](./edge-function) | Supabase Edge Function with auth, CORS, Zod validation, error handling | `/edge-function newsletter-signup` |
+| [setup-gtm](./setup-gtm) | GTM container + GA4 + Meta Pixel + PostHog + Consent Mode v2 | `/setup-gtm` |
+| [new-page](./new-page) | New page with route, lazy-loading, SEO meta, mobile-first layout | `/new-page pricing` |
+| [social-sharing](./social-sharing) | OG image (1200x630), favicon, meta tags, Twitter cards, JSON-LD | `/social-sharing my-project` |
 
-Foundational work for new ventures.
+### Workflow & CI (2 skills)
 
-| Skill | What it does |
-|-------|-------------|
-| [brand-identity](./brand-identity) | Interactive 6-phase brand workshop — inspo, personality, colors, assets, logo, website |
+Pre-launch checks and test generation. Run `/pre-deploy` before every push. Run `/e2e-tests` after building a new feature.
+
+| Skill | What it does | Example |
+|-------|-------------|---------|
+| [pre-deploy](./pre-deploy) | Pre-deployment checklist — types, build, lint, env vars, security, git status | `/pre-deploy` |
+| [e2e-tests](./e2e-tests) | Generate Playwright E2E tests for a page or feature | `/e2e-tests landing-page` |
+
+### Brand & Strategy (1 skill)
+
+For the very beginning of a new venture — before any code is written.
+
+| Skill | What it does | Example |
+|-------|-------------|---------|
+| [brand-identity](./brand-identity) | Interactive 6-phase brand workshop — inspo, personality, colors, assets, logo, website | `/brand-identity my-project` |
 
 ---
 
 ## Install
 
-Each skill is a single `.md` file. Pick what you need, or install everything.
+Each skill is a single `.md` file that gets copied to your local `~/.claude/skills/` directory. One command per skill, or install everything at once.
 
 ### Install one skill
 
@@ -63,7 +90,29 @@ mkdir -p ~/.claude/skills/SKILL_NAME && curl -sS -o ~/.claude/skills/SKILL_NAME/
   https://raw.githubusercontent.com/120ventures/claude-skills/main/SKILL_NAME/SKILL.md
 ```
 
-Then in Claude Code: `/SKILL_NAME`
+Then open Claude Code and type `/SKILL_NAME` to run it.
+
+### Install all 16 skills
+
+```bash
+for skill in ux-audit ui-audit cro-audit copy-audit mobile-audit a11y-audit legal-audit security-audit edge-function setup-gtm new-page social-sharing pre-deploy e2e-tests brand-identity; do
+  mkdir -p ~/.claude/skills/$skill
+  curl -sS -o ~/.claude/skills/$skill/SKILL.md \
+    https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
+done
+```
+
+### Install just the audits
+
+If you only want the 8 audit skills:
+
+```bash
+for skill in ux-audit ui-audit cro-audit copy-audit mobile-audit a11y-audit legal-audit security-audit; do
+  mkdir -p ~/.claude/skills/$skill
+  curl -sS -o ~/.claude/skills/$skill/SKILL.md \
+    https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
+done
+```
 
 <details>
 <summary>Individual install commands (copy-paste ready)</summary>
@@ -82,6 +131,7 @@ mkdir -p ~/.claude/skills/security-audit && curl -sS -o ~/.claude/skills/securit
 # Scaffolding & Setup
 mkdir -p ~/.claude/skills/edge-function && curl -sS -o ~/.claude/skills/edge-function/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/edge-function/SKILL.md
 mkdir -p ~/.claude/skills/setup-gtm && curl -sS -o ~/.claude/skills/setup-gtm/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/setup-gtm/SKILL.md
+mkdir -p ~/.claude/skills/new-page && curl -sS -o ~/.claude/skills/new-page/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/new-page/SKILL.md
 mkdir -p ~/.claude/skills/social-sharing && curl -sS -o ~/.claude/skills/social-sharing/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/social-sharing/SKILL.md
 
 # Workflow & CI
@@ -94,34 +144,22 @@ mkdir -p ~/.claude/skills/brand-identity && curl -sS -o ~/.claude/skills/brand-i
 
 </details>
 
-### Install all at once
+### Updating skills
 
-```bash
-for skill in ux-audit ui-audit cro-audit copy-audit mobile-audit a11y-audit legal-audit security-audit edge-function setup-gtm social-sharing pre-deploy e2e-tests brand-identity; do
-  mkdir -p ~/.claude/skills/$skill
-  curl -sS -o ~/.claude/skills/$skill/SKILL.md \
-    https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
-done
-```
-
-### Install by category
-
-```bash
-# All 8 audits
-for skill in ux-audit ui-audit cro-audit copy-audit mobile-audit a11y-audit legal-audit security-audit; do
-  mkdir -p ~/.claude/skills/$skill
-  curl -sS -o ~/.claude/skills/$skill/SKILL.md \
-    https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
-done
-```
+To update a skill to the latest version, just re-run the install command — it overwrites the old file.
 
 ---
 
 ## What are Claude Code skills?
 
-Skills are markdown instruction files that live in `~/.claude/skills/`. When you type `/skill-name` in Claude Code, it follows the instructions in that file. No packages, no config — just a `.md` file.
+[Claude Code](https://claude.ai/code) is Anthropic's CLI for coding with Claude. Skills are markdown instruction files that extend it with custom commands. When you type `/skill-name` in Claude Code, it reads the skill file and follows the instructions — reading your project, running checks, generating code, or fixing issues.
 
-- **Global skills** (for you): `~/.claude/skills/{name}/SKILL.md`
-- **Project skills** (shared via repo): `.claude/skills/{name}/SKILL.md`
+Think of it as a reusable prompt with structure: each skill has steps, checklists, and rules that Claude follows consistently every time you run it.
 
-[Learn more about Claude Code](https://docs.anthropic.com/en/docs/claude-code)
+**Where skills live:**
+- **Global skills** (available in every project): `~/.claude/skills/{name}/SKILL.md`
+- **Project skills** (shared via repo, team-wide): `.claude/skills/{name}/SKILL.md`
+
+The skills in this repo are designed as global skills. Install them once, use them everywhere.
+
+[Claude Code docs](https://docs.anthropic.com/en/docs/claude-code) · [Skills documentation](https://docs.anthropic.com/en/docs/claude-code/skills)
