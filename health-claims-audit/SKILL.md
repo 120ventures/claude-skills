@@ -40,18 +40,134 @@ Before auditing, read:
 - Image and video content descriptions (before/after, body imagery)
 - Meta descriptions and ad copy (if present)
 
-Identify:
-- **Product category** — Is this a Medizinprodukt, Nahrungsergänzungsmittel, Kosmetikum, Wellness-Produkt, App/Software as Medical Device (SaMD), or Lifestyle-Produkt?
-- **Regulatory classification** — Medizinprodukt Klasse I/IIa/IIb/III? CE-Kennzeichnung?
-- **Target audience** — Laien (Verbraucher) or Fachpublikum (Ärzt:innen, Kliniken)?
-- **Zweckbestimmung** — What is the approved/intended purpose per IFU/Gebrauchsanweisung?
-- **Claim basis** — What evidence exists for claims made? (Studien, CE-Daten, EFSA-Liste)
+---
+
+## Step 1: Business Model Interview
+
+**STOP. Before auditing anything, ask the user the following questions.** The answers fundamentally change what's allowed and what's not. Use AskUserQuestion to collect all answers before proceeding.
+
+Present a brief intro:
+
+> Bevor ich den Audit starte, brauche ich ein paar Infos zu eurem Geschäftsmodell — was ihr dürft und was nicht hängt stark davon ab, wie euer Produkt regulatorisch einzuordnen ist und mit wem ihr zusammenarbeitet.
+
+### Question 1: Produktkategorie
+
+> Was ist euer Produkt?
+
+Options:
+- Medizinprodukt (CE-gekennzeichnet, definierte Zweckbestimmung)
+- Nahrungsergänzungsmittel (NEM)
+- Kosmetikum
+- Software / App
+- Physisches Wellness-/Lifestyle-Produkt
+- Dienstleistung (Coaching, Beratung, Kurs)
+- Kombination / Unsicher
+
+### Question 2: Fachliche Zusammenarbeit
+
+> Arbeitet ihr mit medizinischen Fachpersonen oder Institutionen zusammen?
+
+Options:
+- Ja, ärztliche Leitung / medizinischer Beirat (namentlich, nachweisbar)
+- Ja, Kooperation mit Ärzt:innen / Therapeut:innen (z.B. Inhalte werden ärztlich geprüft)
+- Ja, akkreditiertes Labor / Forschungseinrichtung
+- Ja, klinische Studien vorhanden (eigene oder Dritte)
+- Nein, keine formelle medizinische Zusammenarbeit
+- Unsicher
+
+**Why this matters:** Mit ärztlicher Zusammenarbeit darfst du z.B. schreiben "Entwickelt mit Ärzt:innen" oder "Ärztlich geprüft" — ohne diese Zusammenarbeit wäre das ein illegaler Claim. Klinische Studien ermöglichen stärkere Wirkaussagen. Ein akkreditiertes Labor erlaubt "Laborgeprüft".
+
+### Question 3: Evidenzbasis
+
+> Welche Evidenz habt ihr für eure Wirkaussagen?
+
+Options:
+- Eigene klinische Studien (RCT, peer-reviewed)
+- Eigene klinische Studien (nicht peer-reviewed)
+- Fremde Studien die den Wirkstoff / die Methode belegen
+- EFSA-zugelassene Health Claims (bei NEM)
+- Anwendungsbeobachtungen / Erfahrungsdaten
+- Keine formelle Evidenz, nur Erfahrungsberichte
+- Unsicher
+
+**Why this matters:** "Klinisch bewiesen" ist nur mit eigenen peer-reviewed Studien erlaubt. "Studien zeigen" geht auch mit Fremdstudien. Ohne Evidenz bleiben nur vage Wellbeing-Claims.
+
+### Question 4: Zielgruppe & Vertriebskanal
+
+> Wer ist eure primäre Zielgruppe und wie wird das Produkt vertrieben?
+
+Options:
+- Endverbraucher:innen (B2C, frei verkäuflich)
+- Fachpublikum (B2B, Ärzt:innen, Kliniken, Apotheken)
+- Beides (getrennte Bereiche auf der Website)
+- Endverbraucher:innen, aber nur über Apotheken / Fachhandel
+- Endverbraucher:innen, Direktvertrieb online
+
+### Question 5: Regulatorischer Status (wenn Medizinprodukt oder App)
+
+> Falls Medizinprodukt oder Software: Wie ist der regulatorische Status?
+
+Options:
+- CE-gekennzeichnet, Klasse I
+- CE-gekennzeichnet, Klasse IIa / IIb / III
+- CE-Verfahren läuft
+- Bewusst KEIN Medizinprodukt (Wellness-Positionierung)
+- Nicht zutreffend (kein Medizinprodukt / keine App)
+
+### Question 6: Bestehende Disclaimers / Rechtsberatung
+
+> Habt ihr bereits rechtliche Beratung zu euren Health Claims eingeholt?
+
+Options:
+- Ja, Anwalt / Regulatory Affairs hat die Claims freigegeben
+- Ja, aber nur teilweise (z.B. nur Impressum, nicht die Claims)
+- Nein, noch keine rechtliche Prüfung
+- Unsicher
 
 ---
 
-## Step 1: Determine product classification
+### Step 1b: Build the Audit Profile
 
-Before checking claims, classify the product. The rules differ dramatically by category.
+Based on the answers, build the **Audit Profile** that governs the entire audit. Present this to the user before continuing:
+
+```
+## Audit-Profil
+
+| Parameter | Wert |
+|-----------|------|
+| Produktkategorie | [Antwort Q1] |
+| Regulatorischer Rahmen | [abgeleitet: MPG 2021 / Health Claims VO / KosmetikVO / UWG / nur UWG] |
+| Fachliche Zusammenarbeit | [Antwort Q2] |
+| Erlaubte Claim-Stärke | [siehe Matrix unten] |
+| Zielgruppe | [Antwort Q4] |
+| Verbraucherwerbung erlaubt? | [Ja / Nein / Eingeschränkt] |
+| Evidenzbasis | [Antwort Q3] |
+| Vorhandene Rechtsberatung | [Antwort Q6] |
+```
+
+### Claim-Stärke-Matrix
+
+Die Kombination aus Evidenz + Fachlicher Zusammenarbeit bestimmt, wie stark eure Claims sein dürfen:
+
+| Evidenz \ Zusammenarbeit | Keine | Ärztl. Beirat / Prüfung | Akkreditiertes Labor | Eigene klin. Studien |
+|--------------------------|-------|-------------------------|---------------------|---------------------|
+| **Keine formelle Evidenz** | Nur Wohlbefinden-Claims ("kann unterstützen") | + "Ärztlich begleitet" | + "Laborgeprüft" | — |
+| **Fremdstudien** | "Basierend auf wiss. Erkenntnissen" | + "Ärztlich empfohlen" möglich | + "Wissenschaftlich fundiert" | — |
+| **Eigene Studien (nicht peer-reviewed)** | "In Anwendungsbeobachtungen zeigte sich..." | + "Von Ärzt:innen entwickelt und getestet" | + "Laborgetestet" | — |
+| **Eigene Studien (peer-reviewed)** | "Klinisch getestet" + Quelle | + "Klinisch bewiesen" + Quelle | + "Klinisch und laborgetestet" | Stärkste Claims erlaubt (mit Quellenangabe) |
+| **EFSA-Liste (nur NEM)** | Exakter Wortlaut der zugelassenen Claims | + Claim + "Ärztlich empfohlen" | + Claim + "Laborgeprüft" | — |
+
+**Wichtig:** Die Matrix zeigt die MAXIMALE Claim-Stärke. Jeder individuelle Claim muss trotzdem gegen die spezifischen Verbote in den Audit-Kategorien geprüft werden.
+
+Ask: **"Stimmt das Audit-Profil? Dann starte ich den Audit."**
+
+Wait for confirmation before proceeding to Step 2.
+
+---
+
+## Step 1c: Product Classification (Decision Tree)
+
+Using the interview answers, classify the product. The rules differ dramatically by category.
 
 ### Decision tree:
 
@@ -69,13 +185,25 @@ Is it a Medizinprodukt (CE-gekennzeichnet, Zweckbestimmung)?
 │       └── Nein → Ist es eine App / Software?
 │           ├── Medical purpose (Diagnose, Therapie, Überwachung)? → Category A: SaMD
 │           └── Wellness / Lifestyle? → Category D: Wellness/Lifestyle
+│
+└── Dienstleistung (Coaching, Beratung)?
+    ├── Gesundheitsbezogen? → UWG + ggf. Psychotherapiegesetz
+    └── Lifestyle / Wellness? → Nur UWG
 ```
 
-**Flag for manual review** if the classification is unclear. Misclassification is the #1 regulatory risk.
+**Flag for manual review** if the classification is unclear or the user answered "Unsicher". Misclassification is the #1 regulatory risk.
+
+**Adjust severity ratings based on Audit Profile:**
+- No legal review yet (Q6) → bump borderline 🟡 issues to 🟠
+- No formal evidence (Q3) + strong claims on site → bump to 🔴
+- Formal medical collaboration (Q2) → claims referencing that collaboration are ALLOWED (don't flag as issues)
+- Peer-reviewed studies (Q3) → "klinisch bewiesen" + source citation is ALLOWED
 
 ---
 
 ## Step 2: Audit across 8 categories
+
+**Use the Audit Profile from Step 1 throughout.** The Claim-Stärke-Matrix determines whether a specific claim is allowed, borderline, or illegal for THIS project. Don't flag claims as violations if the business model supports them (e.g., "Ärztlich geprüft" is fine if Q2 confirmed medical collaboration).
 
 Go through **each category** below. For every issue found, note the file, the specific legal requirement, and the recommended fix. Rate severity as:
 - **🔴 Critical** — illegal claim, Abmahnung/fine risk, product seizure risk
@@ -320,20 +448,24 @@ Go through **each category** below. For every issue found, note the file, the sp
 
 ---
 
-## Step 2: Report findings
+## Step 3: Report findings
 
-Present findings grouped by severity:
+Present findings grouped by severity. **Always include the Audit Profile at the top** so the reader understands the basis for severity ratings.
 
 ```
 ## Health Claims Audit Results
 
-### Produktklassifizierung
-| Frage | Antwort |
-|-------|---------|
-| Produktkategorie | [Medizinprodukt / NEM / Kosmetik / Wellness / SaMD] |
-| Zielgruppe | [Laien / Fachpublikum / Beides] |
+### Audit-Profil (Basis für Bewertung)
+| Parameter | Wert |
+|-----------|------|
+| Produktkategorie | [from Q1] |
+| Fachliche Zusammenarbeit | [from Q2 — this is critical for claim strength] |
+| Evidenzbasis | [from Q3] |
+| Erlaubte Claim-Stärke | [from matrix] |
+| Zielgruppe | [from Q4] |
 | Verbraucherwerbung erlaubt? | [Ja / Nein / Eingeschränkt] |
 | Regulatorischer Rahmen | [MPG 2021 / Health Claims VO / KosmetikVO / UWG] |
+| Rechtsberatung vorhanden? | [from Q6] |
 
 ### 🔴 Critical — illegaler Claim, Abmahnung/Bußgeld-Risiko
 | Issue | Gesetzliche Basis | File:Line | Aktueller Text | Empfohlener Fix |
@@ -366,7 +498,7 @@ Ask the user: **"Soll ich die Copy-Issues fixen? (Produktklassifizierung und Evi
 
 ---
 
-## Step 3: Fix issues
+## Step 4: Fix issues
 
 Apply fixes directly in the codebase. For each fix:
 - Show before → after für jeden geänderten Text
@@ -392,7 +524,7 @@ Apply fixes directly in the codebase. For each fix:
 
 ---
 
-## Step 4: Summary
+## Step 5: Summary
 
 ```
 Health Claims Audit Complete!
