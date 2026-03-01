@@ -206,20 +206,6 @@ Go through **each category** below. For every issue found, note the file, the sp
 
 ---
 
-#### Hick's Law — Menu & Toolbar Overload
-> More options = more decision time. Reduce visible choices, especially for first-time users.
-
-**Check for:**
-- Navigation with too many visible items at the same level
-- Toolbars or action bars with >5 visible actions
-- Dropdown menus with >10 ungrouped items
-- Form fields presenting too many radio/checkbox options without structure
-- Feature grids showing everything at once without progressive disclosure
-
-**Fix pattern:** Group related actions. Show 3-5 primary options, nest the rest. Use progressive disclosure (accordion, "show more", tabs). Highlight the recommended/default option.
-
----
-
 #### Aesthetic-Usability Effect — Polish = Perceived Usability + Trust
 > Visually polished interfaces are perceived as easier to use and more trustworthy, even before interaction.
 
@@ -265,35 +251,6 @@ Go through **each category** below. For every issue found, note the file, the sp
 **Fix pattern:** Extract shared components. Create a component audit spreadsheet: list every instance of buttons, cards, headings, spacing — find and fix deviations. Use design tokens consistently.
 
 ---
-
-#### Jakob's Law — Follow Web Conventions
-> Users expect your product to work like products they already know. Don't reinvent standard patterns.
-
-**Check for:**
-- Logo not in top-left (or center for mobile)
-- Navigation not at the top of the page
-- Non-standard hamburger menu behavior
-- Footer missing expected links (privacy, terms, contact)
-- Form inputs that don't look like inputs (no border, no background differentiation)
-- Modals/overlays that can't be dismissed with Escape or background click
-- Scroll behavior that hijacks native scrolling
-
-**Fix pattern:** Follow platform conventions. Use standard patterns for nav, forms, modals, footers. Only deviate when the custom pattern is clearly better AND thoroughly tested.
-
----
-
-#### Postel's Law for Inputs — Generous Acceptance, Strict Display
-> Accept diverse input formats gracefully. Display output consistently and cleanly.
-
-**Check for:**
-- Email inputs that reject valid formats (plus addressing, long TLDs)
-- Phone inputs requiring specific formatting (parentheses, dashes)
-- Date inputs that only accept one format
-- Name fields that reject special characters (apostrophes, hyphens, umlauts)
-- Search that requires exact matches instead of fuzzy matching
-- Error messages that say "invalid" without showing the expected format
-
-**Fix pattern:** Accept liberally, normalize internally, display consistently. Show format examples in placeholders. Auto-format on blur. Error messages should show what's expected, not just what's wrong.
 
 ---
 

@@ -12,6 +12,7 @@ Shared [Claude Code](https://claude.ai/code) skills for our ventures. Each skill
 | [edge-function](./edge-function) | Supabase Edge Function with auth, CORS, Zod validation, error handling | [↓ Install](#edge-function) |
 | [ux-audit](./ux-audit) | UX audit against 25+ UX laws, Gestalt principles, Nielsen's heuristics — with fixes | [↓ Install](#ux-audit) |
 | [ui-audit](./ui-audit) | Visual UI audit — layout hierarchy, spacing, typography, color, Gestalt grouping, consistency | [↓ Install](#ui-audit) |
+| [cro-audit](./cro-audit) | CRO audit — messaging clarity, trust placement, funnel flow, persuasion structure, copy | [↓ Install](#cro-audit) |
 | [a11y-audit](./a11y-audit) | Accessibility audit + auto-fix — WCAG 2.2 Level AA + a11y project checklist | [↓ Install](#a11y-audit) |
 | [security-audit](./security-audit) | Scan for hardcoded secrets, missing RLS, XSS risks, unvalidated inputs | [↓ Install](#security-audit) |
 | [pre-deploy](./pre-deploy) | Pre-deployment checklist — types, build, lint, env vars, security, git status | [↓ Install](#pre-deploy) |
@@ -57,6 +58,12 @@ mkdir -p ~/.claude/skills/ui-audit && curl -sS -o ~/.claude/skills/ui-audit/SKIL
 ```
 Then in Claude Code: `/ui-audit`
 
+### cro-audit
+```bash
+mkdir -p ~/.claude/skills/cro-audit && curl -sS -o ~/.claude/skills/cro-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/cro-audit/SKILL.md
+```
+Then in Claude Code: `/cro-audit`
+
 ### a11y-audit
 ```bash
 mkdir -p ~/.claude/skills/a11y-audit && curl -sS -o ~/.claude/skills/a11y-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/a11y-audit/SKILL.md
@@ -86,7 +93,7 @@ Then in Claude Code: `/e2e-tests landing-page`
 If you want everything:
 
 ```bash
-for skill in setup-gtm brand-identity social-sharing edge-function ux-audit ui-audit a11y-audit security-audit pre-deploy e2e-tests; do
+for skill in setup-gtm brand-identity social-sharing edge-function ux-audit ui-audit cro-audit a11y-audit security-audit pre-deploy e2e-tests; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md

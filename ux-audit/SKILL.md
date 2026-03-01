@@ -1,18 +1,22 @@
 ---
 name: ux-audit
-description: Audit UX against established UX laws, cognitive principles, Gestalt perception, and Nielsen's heuristics — with actionable fixes
+description: Audit UX against established UX laws, cognitive principles, and Nielsen's heuristics — with actionable fixes
 ---
 
-# UX Audit — Laws of UX + Heuristics + Gestalt Principles
+# UX Audit — Laws of UX + Nielsen's Heuristics
 
-This skill audits a project's user experience against established UX laws, cognitive principles, and design heuristics. It identifies violations, explains which law applies, and fixes issues directly in the codebase.
+This skill audits a project's user experience against established UX laws, cognitive principles, and design heuristics. It focuses on **behavioral outcomes** — does the flow work? is the user confused? does the system communicate well?
 
 No arguments needed. Just run `/ux-audit` and the skill scans the project automatically.
+
+**Difference from other audits:**
+- `/ux-audit` checks **behavioral outcomes** — decision-making, cognition, system feedback, error handling
+- `/ui-audit` checks **visual implementation** — spacing, typography, color, Gestalt grouping, visual consistency
+- `/cro-audit` checks **conversion effectiveness** — messaging, trust placement, funnel narrative, copy
 
 Reference sources:
 - Jon Yablonski's Laws of UX: https://lawsofux.com/
 - Nielsen Norman Group Heuristics: https://www.nngroup.com/articles/ten-usability-heuristics/
-- Gestalt Principles of Perception
 
 ---
 
@@ -157,46 +161,6 @@ Go through **each category** below. For every issue found, note the file, the sp
 
 ### Category 2: Interaction & Performance
 
-#### Fitts's Law
-> Time to reach a target depends on size and distance. Make key targets large and close.
-
-**Check for:**
-- Small click/tap targets (<44px on mobile, <32px on desktop)
-- Primary CTAs far from the user's current focus area
-- Important actions in hard-to-reach corners
-- Close buttons that are too small
-- Links/buttons with tiny hit areas (text-only without padding)
-
-**Fix pattern:** Increase target size (min 44×44px touch), place primary actions within thumb reach on mobile, add generous padding to interactive elements.
-
----
-
-#### Doherty Threshold
-> Response times under ~400ms keep users in flow.
-
-**Check for:**
-- No loading states for async operations
-- No optimistic UI updates
-- Heavy animations that delay perceived responsiveness
-- Form submissions without immediate feedback
-
-**Fix pattern:** Add loading spinners/skeletons, use optimistic updates, show immediate visual feedback on interaction.
-
----
-
-#### Postel's Law
-> Be liberal in what you accept, conservative in what you send.
-
-**Check for:**
-- Overly strict form validation (rejecting valid input formats)
-- Phone/date inputs that require exact formatting
-- Error messages that don't explain what's expected
-- Case-sensitive inputs where case doesn't matter
-
-**Fix pattern:** Accept multiple input formats, auto-format on blur, show clear examples in placeholders.
-
----
-
 #### Peak-End Rule
 > Experience is judged by its peak moment and its ending.
 
@@ -239,124 +203,153 @@ Go through **each category** below. For every issue found, note the file, the sp
 
 ---
 
-#### Nielsen's 10 Heuristics
+#### Nielsen's 10 Usability Heuristics
 
-Audit against each:
-
-| # | Heuristic | What to check |
-|---|-----------|---------------|
-| 1 | **Visibility of system status** | Loading states, progress indicators, current page indication in nav, form validation feedback |
-| 2 | **Match between system and real world** | Natural language, familiar icons, logical ordering, real-world metaphors |
-| 3 | **User control and freedom** | Undo/back actions, exit points from flows, ability to dismiss modals, cancel operations |
-| 4 | **Consistency and standards** | Same action = same result everywhere, consistent styling, platform conventions |
-| 5 | **Error prevention** | Confirmation for destructive actions, input constraints, disable invalid submit |
-| 6 | **Recognition over recall** | Visible options vs. hidden menus, labels on icons, recently used items |
-| 7 | **Flexibility and efficiency** | Keyboard shortcuts, power-user paths, personalization options |
-| 8 | **Aesthetic and minimalist design** | No irrelevant info, clean visual hierarchy, content-to-chrome ratio |
-| 9 | **Help users recognize, diagnose, recover from errors** | Clear error messages, suggested fixes, non-technical language |
-| 10 | **Help and documentation** | FAQ, tooltips, onboarding guidance, contextual help |
+Audit against each heuristic individually:
 
 ---
 
-### Category 4: Visual Perception (Gestalt Principles)
-
-#### Law of Prägnanz (Simplicity)
-> People perceive complex images in their simplest form.
+#### H1: Visibility of System Status
+> Always show progress, loading states, or feedback so users know what's happening.
 
 **Check for:**
-- Overly complex layouts that aren't scannable
-- Too many visual elements competing for attention
-- Unclear visual hierarchy
+- No loading states for async operations (API calls, form submissions)
+- Missing progress indicators in multi-step flows
+- Current page not indicated in navigation
+- Form validation feedback missing or delayed
+- No confirmation after successful actions ("Saving...", "Gespeichert!")
 
-**Fix pattern:** Simplify. Use clear sections, whitespace, and visual hierarchy.
+**Fix pattern:** Add loading spinners, progress bars, active nav states, inline validation, and success/error toasts. Every user action should produce visible feedback within 400ms.
 
 ---
 
-#### Law of Proximity
-> Elements close together are perceived as related.
+#### H2: Match Between System and Real World
+> Use familiar language, metaphors, and layouts users expect from the real world.
 
 **Check for:**
-- Related items spaced too far apart (label far from its input)
-- Unrelated items too close together (causing false grouping)
-- Inconsistent spacing between related vs. unrelated elements
+- Technical jargon instead of natural language
+- Icons that don't match common meaning
+- Logical ordering that doesn't match real-world sequences
+- Unfamiliar metaphors or terminology
+- Categories/labels that don't match user mental models
 
-**Fix pattern:** Group related elements with tight spacing. Separate unrelated elements with more space.
+**Fix pattern:** Use language your users use. Follow real-world conventions for ordering (chronological, alphabetical, by importance). Test terminology with real users.
 
 ---
 
-#### Law of Similarity
-> Similar-looking elements are seen as part of the same group.
+#### H3: User Control and Freedom
+> Users make mistakes — give them undo, back buttons, and escape hatches.
 
 **Check for:**
-- Buttons that look the same but do different things
-- Different element types that look identical
-- Inconsistent styling for same-type elements
+- No way to undo recent actions
+- Missing back/cancel buttons in multi-step flows
+- Modals that can't be dismissed (no X, no Escape, no backdrop click)
+- Destructive actions without confirmation
+- No way to exit or restart a flow mid-way
 
-**Fix pattern:** Style similar functions similarly. Differentiate different functions visually.
+**Fix pattern:** Add undo for destructive actions, back buttons in flows, dismiss options on all overlays, and clear exit points. Users should never feel trapped.
 
 ---
 
-#### Law of Common Region
-> Elements within a bounded area are perceived as grouped.
+#### H4: Consistency and Standards
+> Same actions and behaviors everywhere in the app; align with platform norms.
 
 **Check for:**
-- Card/section boundaries that don't match logical grouping
-- Missing visual containers for related content
-- Content that logically belongs together but isn't visually grouped
+- Same action producing different results in different places
+- Inconsistent button/link styling for same-level actions
+- Non-standard platform conventions (navigation, form patterns, gestures)
+- Terminology changing across pages for the same concept
+- Inconsistent interaction patterns (some things click, some hover, some long-press)
 
-**Fix pattern:** Use cards, borders, or background colors to group related content.
+**Fix pattern:** Create and enforce a component library. Same action = same visual treatment = same behavior. Follow platform conventions unless you have a strong, tested reason not to.
 
 ---
 
-#### Law of Common Fate
-> Elements moving in the same direction are perceived as grouped.
+#### H5: Error Prevention
+> Design to prevent mistakes before they happen, not just catch them after.
 
 **Check for:**
-- Animations where unrelated elements move together
-- Scroll effects that group unrelated content
-- Carousel items that should feel independent but move as one
+- Forms that allow invalid submissions (no client-side validation)
+- Missing confirmation dialogs for destructive or irreversible actions
+- No smart defaults where the system could pre-fill values
+- Free-text inputs where constrained inputs (dropdowns, date pickers) would prevent errors
+- No input masks or formatting hints for structured data
 
-**Fix pattern:** Animate related elements together, unrelated elements independently.
+**Fix pattern:** Use smart defaults, input constraints, confirmation dialogs, and inline validation. Disable submit buttons until required fields are valid. Prevent rather than fix.
 
 ---
 
-#### Law of Continuity
-> People prefer smooth, continuous paths.
+#### H6: Recognition Over Recall
+> Show options visibly instead of making users remember commands or previous choices.
 
 **Check for:**
-- Broken visual lines or alignment
-- Inconsistent grid alignment across sections
-- Progress flows that feel disconnected
+- Hidden navigation or menus requiring users to remember where things are
+- Icons without labels (users must recall what each icon means)
+- Forms that don't show previously selected values
+- Search without recent/suggested items
+- Instructions that require remembering information from a previous screen
 
-**Fix pattern:** Maintain visual continuity. Align elements on a consistent grid.
+**Fix pattern:** Label icons, show recent items, persist form state, use visible navigation. If users need to act on information, keep it visible — don't make them memorize it.
 
 ---
 
-#### Law of Closure
-> People mentally complete incomplete shapes.
+#### H7: Flexibility and Efficiency of Use
+> Shortcuts for experts, progressive disclosure for novices.
 
 **Check for:**
-- Intentional use: carousel items partially visible at edge (signals scrollability)
-- Unintentional: cut-off content that looks broken vs. intentional peek
+- No keyboard shortcuts for frequent actions
+- Advanced features cluttering the interface for new users
+- No progressive disclosure (everything shown at once)
+- Missing power-user paths (bulk actions, keyboard navigation)
+- One-size-fits-all flows that can't be customized or skipped
 
-**Fix pattern:** Use partial visibility intentionally to signal more content. Avoid accidental cutoffs.
+**Fix pattern:** Layer complexity — simple by default, powerful on demand. Add keyboard shortcuts, bulk actions, and "advanced" sections. Let experts skip steps they don't need.
 
 ---
 
-### Category 5: Emotion, Aesthetics & Trust
-
-#### Aesthetic-Usability Effect
-> Attractive interfaces are perceived as easier to use and more trustworthy.
+#### H8: Aesthetic and Minimalist Design
+> Cut clutter and focus on essentials. Every element should serve a purpose.
 
 **Check for:**
-- Inconsistent visual design across pages
-- Dated or generic UI patterns
-- Mismatched typography or color usage
-- Low-quality images or icons
+- Irrelevant information competing with primary content
+- Visual clutter that doesn't serve the user's goal
+- Low content-to-chrome ratio (too much UI, too little content)
+- Decorative elements that distract from key actions
+- Dense pages that could benefit from progressive disclosure
 
-**Fix pattern:** Ensure consistent, polished visual design. Every detail matters for trust.
+**Fix pattern:** Remove what doesn't serve the current task. Prioritize content over chrome. Use whitespace deliberately. If an element doesn't help the user complete their goal, question whether it belongs.
 
 ---
+
+#### H9: Help Users Recognize, Diagnose, and Recover from Errors
+> Plain-language error messages with actionable fixes, not cryptic codes.
+
+**Check for:**
+- Technical error messages (HTTP codes, stack traces, "Error 500")
+- Error messages that say what went wrong but not how to fix it
+- Missing error states (silent failures)
+- Error messages in a different language than the UI
+- No suggested next steps after an error
+
+**Fix pattern:** Write error messages in plain language: (1) what happened, (2) why, (3) how to fix it. Example: "E-Mail konnte nicht gesendet werden. Bitte überprüfe deine Internetverbindung und versuche es erneut."
+
+---
+
+#### H10: Help and Documentation
+> Available when needed, discoverable but not intrusive.
+
+**Check for:**
+- No FAQ or help section for complex features
+- Missing tooltips on non-obvious UI elements
+- No onboarding guidance for first-time users
+- Help documentation that's hard to find or out of date
+- No contextual help near complex form fields
+
+**Fix pattern:** Add contextual tooltips, an accessible FAQ, and onboarding hints for first-time users. Help should appear where users need it, not require them to go looking for it.
+
+---
+
+### Category 4: Emotion & Trust
 
 #### Social Proof & Authority
 > Users are influenced by what others do and who endorses the product.
