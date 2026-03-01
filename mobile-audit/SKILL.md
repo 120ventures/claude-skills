@@ -12,7 +12,7 @@ No arguments needed. Just run `/mobile-audit` and the skill scans the project au
 **Difference from other audits:**
 - `/ui-audit` checks **visual polish** — spacing, typography, color, consistency (desktop + mobile)
 - `/ux-audit` checks **behavioral outcomes** — cognitive load, decision-making, system feedback
-- `/a11y-audit` checks **accessibility** — WCAG compliance, keyboard nav, screen readers
+- `/accessibility-audit` checks **accessibility** — WCAG compliance, keyboard nav, screen readers
 - `/mobile-audit` checks **mobile-specific optimization** — Core Web Vitals, responsive CSS, touch targets, mobile performance, mobile navigation
 
 Reference sources:
@@ -579,7 +579,7 @@ Recommended next steps:
 - **Audit mobile experience specifically**, not general UX or visual design
 - **320px is the floor** — everything must work at 320px viewport width
 - Don't duplicate `/ui-audit` — reference it for visual consistency, focus here on mobile-specific issues
-- Don't duplicate `/a11y-audit` — reference it for WCAG, focus here on mobile touch/viewport issues
+- Don't duplicate `/accessibility-audit` — reference it for WCAG, focus here on mobile touch/viewport issues
 - Core Web Vitals are hard requirements, not nice-to-haves (Google ranks by them)
 - Test at real mobile viewports (320px, 375px, 390px, 414px), not just "responsive mode"
 - Never add `user-scalable=no` or `maximum-scale=1` — these are accessibility violations

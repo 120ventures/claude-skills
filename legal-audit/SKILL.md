@@ -11,7 +11,7 @@ No arguments needed. Just run `/legal-audit` and the skill scans the project aut
 
 **Difference from other audits:**
 - `/security-audit` checks **code-level security** — secrets, XSS, RLS, input validation
-- `/a11y-audit` checks **WCAG accessibility** — contrast, keyboard nav, ARIA, semantics
+- `/accessibility-audit` checks **WCAG accessibility** — contrast, keyboard nav, ARIA, semantics
 - `/legal-audit` checks **legal compliance** — DSGVO, Impressum, cookie consent, data processing, Austrian law
 
 **Important:** This skill provides technical compliance checks, not legal advice. Recommend professional legal review for final sign-off.
@@ -390,9 +390,9 @@ Go through **each category** below. For every issue found, note the file, the le
 - Barrierefreiheitserklärung (accessibility statement) — required for public sector, recommended for private
 - Basic compliance indicators (contrast, alt texts, keyboard nav, semantic HTML)
 
-**Note:** For full WCAG 2.2 Level AA compliance, run `/a11y-audit`. This category only flags the legal requirement.
+**Note:** For full WCAG 2.2 Level AA compliance, run `/accessibility-audit`. This category only flags the legal requirement.
 
-**Fix pattern:** Add Barrierefreiheitserklärung if required. Run `/a11y-audit` for comprehensive technical check. Plan for BaFG compliance timeline.
+**Fix pattern:** Add Barrierefreiheitserklärung if required. Run `/accessibility-audit` for comprehensive technical check. Plan for BaFG compliance timeline.
 
 ---
 
@@ -487,7 +487,7 @@ Recommended next steps:
 - Verify AVVs exist with all data processors
 - Create/update Verarbeitungsverzeichnis (VVT)
 - Test cookie consent flow end-to-end (DevTools → verify no pre-consent cookies)
-- Run `/a11y-audit` for full WCAG compliance
+- Run `/accessibility-audit` for full WCAG compliance
 - Run `/security-audit` for code-level security
 - Schedule annual legal compliance review
 ```
@@ -501,7 +501,7 @@ Recommended next steps:
 - **Never draft legal text** — flag content for lawyer review, only fix technical implementation
 - Reference specific legal articles (Art. X DSGVO, §Y ECG) for every finding
 - Clearly separate what you CAN fix (technical) from what needs MANUAL review (legal content)
-- Don't duplicate `/a11y-audit` — reference it for WCAG, only flag the legal requirement here
+- Don't duplicate `/accessibility-audit` — reference it for WCAG, only flag the legal requirement here
 - Don't duplicate `/security-audit` — reference it for code security, only check legally required headers here
 - Err on the side of caution — if unsure whether something is required, flag it as 🟠 Major
 - **Never recommend removing legally required elements** for aesthetic or UX reasons

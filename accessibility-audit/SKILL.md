@@ -1,5 +1,5 @@
 ---
-name: a11y-audit
+name: accessibility-audit
 description: Audit and fix accessibility issues following WCAG 2.2 Level AA + a11y project best practices
 ---
 
@@ -9,7 +9,7 @@ This skill audits a project for accessibility issues and fixes them. Based on:
 - **WCAG 2.2** (Level A + AA): https://www.w3.org/TR/WCAG22/
 - **The A11Y Project checklist**: https://www.a11yproject.com/checklist/
 
-No arguments needed. Just run `/a11y-audit` and the skill scans the project automatically.
+No arguments needed. Just run `/accessibility-audit` and the skill scans the project automatically.
 
 ---
 
