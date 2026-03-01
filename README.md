@@ -15,6 +15,7 @@ Shared [Claude Code](https://claude.ai/code) skills for our ventures. Each skill
 | [cro-audit](./cro-audit) | CRO audit — trust placement, funnel flow, persuasion structure, conversion psychology | [↓ Install](#cro-audit) |
 | [copy-audit](./copy-audit) | Copy audit — clarity, tone, PAS framework, microcopy, Austrian German localization | [↓ Install](#copy-audit) |
 | [a11y-audit](./a11y-audit) | Accessibility audit + auto-fix — WCAG 2.2 Level AA + a11y project checklist | [↓ Install](#a11y-audit) |
+| [mobile-audit](./mobile-audit) | Mobile audit — Core Web Vitals, responsive design, touch targets, performance, navigation | [↓ Install](#mobile-audit) |
 | [legal-audit](./legal-audit) | Legal compliance audit — DSGVO, ECG, FAGG, ePrivacy, cookie consent, Impressum (Austria) | [↓ Install](#legal-audit) |
 | [security-audit](./security-audit) | Scan for hardcoded secrets, missing RLS, XSS risks, unvalidated inputs | [↓ Install](#security-audit) |
 | [pre-deploy](./pre-deploy) | Pre-deployment checklist — types, build, lint, env vars, security, git status | [↓ Install](#pre-deploy) |
@@ -78,6 +79,12 @@ mkdir -p ~/.claude/skills/a11y-audit && curl -sS -o ~/.claude/skills/a11y-audit/
 ```
 Then in Claude Code: `/a11y-audit`
 
+### mobile-audit
+```bash
+mkdir -p ~/.claude/skills/mobile-audit && curl -sS -o ~/.claude/skills/mobile-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/mobile-audit/SKILL.md
+```
+Then in Claude Code: `/mobile-audit`
+
 ### legal-audit
 ```bash
 mkdir -p ~/.claude/skills/legal-audit && curl -sS -o ~/.claude/skills/legal-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/legal-audit/SKILL.md
@@ -107,7 +114,7 @@ Then in Claude Code: `/e2e-tests landing-page`
 If you want everything:
 
 ```bash
-for skill in setup-gtm brand-identity social-sharing edge-function ux-audit ui-audit cro-audit copy-audit a11y-audit legal-audit security-audit pre-deploy e2e-tests; do
+for skill in setup-gtm brand-identity social-sharing edge-function ux-audit ui-audit cro-audit copy-audit mobile-audit a11y-audit legal-audit security-audit pre-deploy e2e-tests; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
