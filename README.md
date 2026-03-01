@@ -10,6 +10,7 @@ Shared [Claude Code](https://claude.ai/code) skills for our ventures. Each skill
 | [brand-identity](./brand-identity) | Interactive 6-phase brand workshop — inspo, personality, colors, assets, logo, website | [↓ Install](#brand-identity) |
 | [social-sharing](./social-sharing) | OG preview image (1200x630), favicon, meta tags, Twitter cards, JSON-LD | [↓ Install](#social-sharing) |
 | [edge-function](./edge-function) | Supabase Edge Function with auth, CORS, Zod validation, error handling | [↓ Install](#edge-function) |
+| [a11y-audit](./a11y-audit) | Accessibility audit + auto-fix — WCAG 2.2 Level AA + a11y project checklist | [↓ Install](#a11y-audit) |
 | [security-audit](./security-audit) | Scan for hardcoded secrets, missing RLS, XSS risks, unvalidated inputs | [↓ Install](#security-audit) |
 | [pre-deploy](./pre-deploy) | Pre-deployment checklist — types, build, lint, env vars, security, git status | [↓ Install](#pre-deploy) |
 | [e2e-tests](./e2e-tests) | Generate Playwright E2E tests for a page or feature | [↓ Install](#e2e-tests) |
@@ -42,6 +43,12 @@ mkdir -p ~/.claude/skills/edge-function && curl -sS -o ~/.claude/skills/edge-fun
 ```
 Then in Claude Code: `/edge-function save-booking`
 
+### a11y-audit
+```bash
+mkdir -p ~/.claude/skills/a11y-audit && curl -sS -o ~/.claude/skills/a11y-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/a11y-audit/SKILL.md
+```
+Then in Claude Code: `/a11y-audit`
+
 ### security-audit
 ```bash
 mkdir -p ~/.claude/skills/security-audit && curl -sS -o ~/.claude/skills/security-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/security-audit/SKILL.md
@@ -65,7 +72,7 @@ Then in Claude Code: `/e2e-tests landing-page`
 If you want everything:
 
 ```bash
-for skill in setup-gtm brand-identity social-sharing edge-function security-audit pre-deploy e2e-tests; do
+for skill in setup-gtm brand-identity social-sharing edge-function a11y-audit security-audit pre-deploy e2e-tests; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
