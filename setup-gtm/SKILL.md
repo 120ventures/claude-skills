@@ -1,39 +1,51 @@
 ---
 name: setup-gtm
 description: Set up Google Tag Manager container with GA4, Meta Pixel, PostHog, Consent Mode v2, and custom events
-argument-hint: [GTM-ID GA4-ID META-PIXEL-ID POSTHOG-KEY]
 ---
 
 # Setup GTM Container with GA4 + Meta Pixel + PostHog + Consent Mode v2
 
-Arguments: `$ARGUMENTS`
+This skill is fully interactive — no arguments needed. Just run `/setup-gtm` and follow the prompts.
 
-Format: `GTM_ID GA4_MEASUREMENT_ID META_PIXEL_ID POSTHOG_API_KEY`
+## Step 0: Collect IDs one by one
 
-Example: `/setup-gtm GTM-ABC1234 G-XYZ9876 1234567890 phc_abc123def456`
+Ask the user for each ID individually. For each one, tell them where to find it if they don't have it yet.
 
-Parse the four arguments:
-1. **GTM Container ID** (e.g. `GTM-ABC1234`)
-2. **GA4 Measurement ID** (e.g. `G-XYZ9876`)
-3. **Meta Pixel ID** (e.g. `1234567890`)
-4. **PostHog Project API Key** (e.g. `phc_xxxxx`)
-
-If any argument is missing, don't guess. Instead show this checklist so the user can grab the IDs:
-
+**1. GTM Container ID**
 ```
-Missing IDs. Here's where to get them:
+Hast du schon einen GTM Container? Gib mir die ID (z.B. GTM-XXXXXXX).
 
-1. GTM Container ID → https://tagmanager.google.com → Create Account → Container → Web → grab GTM-XXXXXXX
-2. GA4 Measurement ID → https://analytics.google.com → Admin → Create Property → Data Streams → Web → grab G-XXXXXXX
-3. Meta Pixel ID → https://business.facebook.com → Events Manager → Connect Data Sources → Web → Meta Pixel → grab the numeric ID
-4. PostHog API Key → https://eu.posthog.com → Settings → Project API Key → grab phc_xxxxx
-
-Then run: /setup-gtm GTM-XXX G-XXX 123456 phc_xxx
+Falls nicht: https://tagmanager.google.com → Account erstellen → Container → Web
 ```
+Wait for the user's answer before continuing.
+
+**2. GA4 Measurement ID**
+```
+GA4 Measurement ID? (z.B. G-XXXXXXX)
+
+Falls nicht: https://analytics.google.com → Admin → Property erstellen → Data Stream → Web
+```
+Wait for the user's answer before continuing.
+
+**3. Meta Pixel ID**
+```
+Meta Pixel ID? (die numerische ID)
+
+Falls nicht: https://business.facebook.com → Events Manager → Connect Data Sources → Web → Meta Pixel
+```
+Wait for the user's answer before continuing.
+
+**4. PostHog API Key**
+```
+PostHog Project API Key? (z.B. phc_xxxxx)
+
+Falls nicht: https://eu.posthog.com → Settings → Project API Key
+```
+Wait for the user's answer before continuing.
 
 ---
 
-## Step 0: Define custom events BEFORE generating anything
+## Step 1: Define custom events BEFORE generating anything
 
 **STOP. Do not generate the container JSON yet.** First, ask the user two questions:
 
