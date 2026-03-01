@@ -334,10 +334,22 @@ Go through **each category** below. For every issue found, note the file, the sp
 | Hähnchen | Hendl | Würstelstand bis Heuriger |
 | Johannisbeeren | Ribisel | Sofort erkennbar |
 | Pilze | Schwammerl | Umgangssprache |
+| Rosenkohl | Kohlsprossen | Küchenstandard |
+| Porree / Lauch | Lauch / Porree | Beides OK, "Lauch" gängiger |
+| Konfitüre | Marmelade | "Konfitüre" = Schweiz/DE |
+| Eiscreme / Eis | Eis / Gefrorenes | "Eiscreme" = amerikanisch |
+| Bonbon | Zuckerl | Klassiker |
+| Berliner / Krapfen | Krapfen | Niemals Berliner! |
+| Brathähnchen | Backhendl / Brathuhn | Traditionsgericht |
+| Soße | Sauce / Saft (beim Braten) | "Soße" = norddeutsch |
+| Brotzeit | Jause | Identitätswort! |
+| Abendbrot | Abendessen / Nachtmahl | "Abendbrot" = norddeutsch |
+| Mittagessen | Mittagessen / Mittag | OK, aber "zu Mittag essen" |
+| Joghurt (das) | Joghurt (das) | Gleich, aber AT: Neutrum! |
 | lecker | gut / gschmackig / fesch | "Lecker" = Deutschländer |
 | Guten Appetit | Mahlzeit / Guten Hunger | "Appetit" klingt snobbig |
 
-**Alltag & Umgangssprache:**
+**Alltag, Haushalt & Wohnen:**
 
 | ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
 |-----------------|-------------------|-------|
@@ -345,59 +357,207 @@ Go through **each category** below. For every issue found, note the file, the sp
 | Junge | Bub | Natürlicher |
 | Mädchen | Mädl / Madl | Natürlicher |
 | dieses Jahr | heuer | Typisch österreichisch |
+| letztes Jahr | voriges Jahr / vorigs Jahr | "Letztes Jahr" = OK aber weniger AT |
 | Stuhl | Sessel | Im Alltag Standard |
 | Treppe | Stiege | Regional aber verbreitet |
 | Schrank | Kasten | Alltagssprache |
 | Bürgersteig | Gehsteig | Standard in AT |
 | Aufzug | Lift | Gängiger |
-| Fahrrad | Rad | "Fahrrad" klingt umständlich |
-| Geldautomat | Bankomat | Markenname, aber Standard |
-| Abitur | Matura | Bildungssystem |
-| Klausur / Prüfung | Schularbeit / Prüfung | Schulkontext |
-| gucken / schauen | schauen | "Gucken" = norddeutsch |
-| reden / sprechen | reden / plaudern | "Plaudern" = gemütlich |
-| anrufen | anrufen / anläuten | "Anläuten" = umgangssprachlich |
-| sauer / wütend | grantig / bös | Emotionaler |
+| Stockwerk | Stock | "Im dritten Stock" |
+| Dachboden | Dachboden / Boden | "Am Boden" = am Dachboden |
+| Keller | Keller | Gleich |
+| Flur / Diele | Gang / Vorraum / Vorzimmer | "Flur" = norddeutsch |
+| Gardine | Vorhang | "Gardine" = unüblich in AT |
+| Steckdose | Steckdose / Dose | OK, gleich |
+| Glühbirne | Birne / Glühbirne | "Birne" reicht |
+| Eimer | Kübel | "Eimer" = unüblich in AT |
+| Mülleimer | Mistkübel | Standard |
+| Fegen / Kehren | Kehren / Zusammenkehren | "Fegen" = norddeutsch |
+| Putzen | Putzen / Aufwischen | Gleich |
+| Wäsche aufhängen | Wäsche aufhängen / aufhängen | Gleich, aber "die Wäsch" |
+| Kleiderbügel | Kleiderbügel / Bügl | Gleich |
+| Fernseher | Fernseher / Glotze | Gleich, "Kastl" = sehr umgangssprachlich |
 
-**Papierkram, Büro & Verwaltung:**
+**Mobilität & Unterwegs:**
 
 | ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
 |-----------------|-------------------|-------|
-| Papierkram | Papierkrieg / Bürokratie | "Papierkram" = norddeutsch |
+| Fahrrad | Rad | "Fahrrad" klingt umständlich |
+| Straßenbahn | Straßenbahn / Bim | "Bim" = Wien-Klassiker |
+| U-Bahn | U-Bahn / Ubahn | Gleich |
+| Fahrkarte | Fahrkarte / Fahrschein | "Fahrschein" = AT-Standard |
+| Parkhaus | Parkhaus / Parkgarage | "Garage" häufiger in AT |
+| Ampel | Ampel | Gleich |
+| Stau | Stau | Gleich, aber "im Stau stehen" |
+| Autobahn | Autobahn | Gleich |
+| Kreisverkehr | Kreisverkehr | Gleich |
+| Tankstelle | Tankstelle / Tanke | "Tanke" = umgangssprachlich |
+| Lkw | Lkw / Laster | Gleich |
+| Motorhaube | Motorhaube | Gleich |
+| Kofferraum | Kofferraum | Gleich |
+| Blinker | Blinker / Winker | "Winker" = umgangssprachlich |
+| Führerschein | Führerschein / Schein | "Schein" = umgangssprachlich |
+
+**Bildung, Beruf & Karriere:**
+
+| ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
+|-----------------|-------------------|-------|
+| Abitur | Matura | Bildungssystem |
+| Klausur | Schularbeit | Schulkontext |
+| Note (Schulnote) | Note | Gleich, aber AT: 1-5 (nicht 1-6!) |
+| Zeugnis | Zeugnis | Gleich |
+| Studiengebühren | Studienbeitrag | AT-Terminus |
+| Semester | Semester | Gleich |
+| Praktikum | Praktikum / Praxis | Gleich |
+| Bewerbung | Bewerbung | Gleich |
+| Lebenslauf | Lebenslauf / CV | Gleich |
+| Gehalt | Gehalt | Gleich, aber AT: 14 Gehälter! |
+| Urlaub | Urlaub | Gleich, aber "auf Urlaub fahren" (nicht "in") |
+| Feierabend | Feierabend / Dienstschluss | "Dienstschluss" = AT-Beamte |
+| Kollege | Kollege / Arbeitskollege | Gleich |
+| Chef | Chef | Gleich, AT auch: "der Alte" (umgangssprachlich) |
+| kündigen | kündigen | Gleich |
+| Gewerkschaft | Gewerkschaft | Gleich, AT: ÖGB |
+| Betriebsrat | Betriebsrat | Gleich |
+| freiberuflich | freiberuflich / selbstständig | Gleich |
+
+**Papierkram, Amt & Verwaltung:**
+
+| ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
+|-----------------|-------------------|-------|
+| Papierkram | Papierkrieg / Amtswege | "Papierkram" = norddeutsch |
+| Behörde | Behörde / Amt | Gleich, AT sagt öfter "Amt" |
+| Einwohnermeldeamt | Meldeamt / Magistrat | AT-Struktur anders |
+| Bürgeramt | Magistrat / Bezirksamt | AT-Verwaltungsstruktur |
+| Standesamt | Standesamt | Gleich |
+| Finanzamt | Finanzamt | Gleich |
+| Steuererklärung | Steuererklärung / Arbeitnehmerveranlagung | AT-Terminus |
 | Beglaubigung | Beglaubigung / Vidimierung | Amtsdeutsch AT |
-| Personalausweis | Personalausweis / Ausweis | OK, aber "Ausweis" kürzer |
-| Führerschein | Führerschein / Schein | Gleich, aber "Schein" umgangssprachlich |
-| Krankenhaus | Krankenhaus / Spital | "Spital" = typisch AT |
-| Rechtsanwalt | Rechtsanwalt / Anwalt | OK, AT sagt auch "Advokat" (gehoben) |
-| Buchhaltung | Buchhaltung | Gleich, aber AT: "Steuerberater" häufiger |
+| Personalausweis | Personalausweis / Ausweis | "Ausweis" kürzer |
+| Krankenhaus | Spital | "Spital" = typisch AT |
+| Arztpraxis | Ordination | "Ordination" = AT-Standard |
+| Rezept (Arzt) | Rezept | Gleich |
+| Krankenkasse | Krankenkasse / ÖGK | AT: Österreichische Gesundheitskasse |
+| Apotheke | Apotheke | Gleich |
+| Rechtsanwalt | Rechtsanwalt / Anwalt | AT auch: "Advokat" (gehoben) |
+| Notar | Notar | Gleich |
 | Ordner (Büro) | Ordner / Mappe | "Mappe" für dünne Ordner |
 | Quittung | Bon / Rechnung | "Quittung" = klingt nach Finanzamt |
-| Formular | Formular / Zettel | "An Zettel ausfüllen" = umgangssprachlich |
+| Formular | Formular / Zettel | "An Zettel ausfüllen" |
+| Briefkasten | Briefkasten / Postkastl | "Postkastl" = umgangssprachlich |
+| Postbote | Briefträger / Postler | "Postler" = umgangssprachlich |
+
+**Geld, Einkaufen & Konsum:**
+
+| ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
+|-----------------|-------------------|-------|
+| Geldautomat | Bankomat | Markenname, aber Standard |
+| Girokonto | Girokonto / Gehaltskonto | "Gehaltskonto" = AT-Banken |
+| Überweisung | Überweisung | Gleich |
+| EC-Karte | Bankomatkarte | "EC-Karte" = Deutschland |
+| Kassenbon | Bon / Kassabon | "Kassenbon" mit doppel-s → "Kassabon" |
+| Pfand | Pfand | Gleich, aber AT-Pfandsystem anders |
+| Sonderangebot | Aktion / Angebot | "In Aktion" = AT-Standardausdruck |
+| Rabatt | Rabatt / Nachlass | Gleich |
+| Einkaufswagen | Einkaufswagen / Wagerl | "Wagerl" = umgangssprachlich |
+| Kassierer/in | Kassier/in | Ohne -er am Ende |
+| Geschäft / Laden | Geschäft / Gschäft | "Laden" = eher norddeutsch |
+| Drogerie | Drogerie | Gleich, AT: "Bipa", "dm" |
+| Fleischer / Metzger | Fleischer / Fleischhauer | "Metzger" = süddeutsch/CH |
+
+**Verben & Redewendungen** (subtil aber wichtig):
+
+| ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
+|-----------------|-------------------|-------|
+| gucken | schauen | "Gucken" = norddeutsch |
+| reden | reden / plaudern | "Plaudern" = gemütlich |
+| anrufen | anrufen / anläuten | "Anläuten" = umgangssprachlich |
+| arbeiten | arbeiten / hackln | "Hackln" = umgangssprachlich |
+| laufen / rennen | laufen / rennen | Gleich |
+| spazieren gehen | spazieren gehen / flanieren | Gleich |
+| sich unterhalten | sich unterhalten / tratschen | "Tratschen" = plaudern (nicht negativ in AT) |
+| sich ärgern | sich ärgern / sich giften | "Giften" = AT-umgangssprachlich |
+| sich beeilen | sich beeilen / sich tummeln | "Tummeln" = umgangssprachlich |
+| kaputtmachen | kaputtmachen / zamhauen | "Zamhauen" = umgangssprachlich |
+| aufräumen | aufräumen / zamräumen | "Zamräumen" = umgangssprachlich |
+| sich setzen | sich setzen / sich hinhauen | "Hinhau di" = umgangssprachlich |
+| verstehen | verstehen / kapieren / checken | Gleich |
+| es funktioniert | es geht / es funktioniert | "Es geht" = natürlicher |
+| ich schaffe das | ich schaff das / des pack i | "Des pack i" = motiviert |
+| sauer / wütend | grantig / bös | Emotionaler |
+| müde | müde / miad | "Miad" = umgangssprachlich |
+| betrunken | betrunken / fett / bsoffn | Viele AT-Varianten |
+| Quatsch / Unsinn | Blödsinn / Schmäh / Topfen | "Quatsch" = norddeutsch |
+| Kram / Zeug | Glumpert / Graffl / Zeug | "Kram" = norddeutsch |
+| prima / toll | super / leiwand / ur geil | "Prima" = klingt nach 1960 |
+| klasse | super / leiwand | "Klasse" = unüblich in AT |
+| nein | na / nein | "Na" = umgangssprachlich |
+| ein bisschen | a bissl / ein bisserl | "Ein bisschen" = zu schriftdeutsch |
+| vielleicht | vielleicht / vüleicht | Gleich |
+| trotzdem | trotzdem / egal | Gleich |
+| irgendwann | irgendwann / irgendwann amol | "Amol" = umgangssprachlich |
 
 **Digital & Marketing-Kontext** (relevant für UX Copy):
 
 | ❌ Bundesdeutsch / Anglizismus | ✅ Österreichisch / Besser | Warum |
 |-------------------------------|---------------------------|-------|
-| Startseite | Startseite | OK — gleich |
 | Benutzerkonto | Konto / Account | "Benutzerkonto" = umständlich |
-| Passwort vergessen | Passwort vergessen | OK — gleich |
-| Anmelden | Anmelden / Einloggen | Beides OK in AT |
 | Zahlungsweise | Zahlungsart | "Zahlungsweise" = bürokratisch |
 | Versandkosten | Versandkosten / Zustellkosten | "Zustellung" = AT-Post-Sprache |
 | Rückerstattung | Rückerstattung / Gutschrift | "Gutschrift" = freundlicher |
 | Lieferzeit | Lieferzeit / Zustellzeit | "Zustellung" für AT |
 | Kundenservice | Kundenservice / Kundendienst | Beides OK |
+| herunterladen | herunterladen / downloaden | Beides OK in AT |
+| hochladen | hochladen / uploaden | Beides OK |
+| Einstellungen | Einstellungen | Gleich |
+| Benachrichtigung | Benachrichtigung / Mitteilung | Gleich |
+| Datenschutz | Datenschutz | Gleich |
+| Nutzungsbedingungen | Nutzungsbedingungen / AGB | "AGB" = kürzer, gängiger |
+| Erfahrungsbericht | Erfahrungsbericht / Bewertung | "Bewertung" = kürzer |
+| Warenkorb | Warenkorb | Gleich |
+| Wunschliste | Wunschliste / Merkliste | "Merkliste" = moderner |
+| Startseite | Startseite | Gleich |
+| Suchleiste | Suchleiste / Suchfeld | Gleich |
 
-**Grüße & Höflichkeit:**
+**Grüße, Höflichkeit & Floskeln:**
 
 | ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
 |-----------------|-------------------|-------|
 | Hallo | Servus / Grüß Gott | "Hallo" = neutral, aber nicht AT-typisch |
 | Tschüss | Pfiat di / Baba / Servus | "Tschüss" = norddeutsch |
+| Auf Wiedersehen | Auf Wiederschauen / Pfiat Gott | "Wiedersehen" = bundesdeutsch |
 | Vielen Dank | Danke / Dankschön | "Vielen Dank" = zu formell für digital |
-| Gern geschehen | Gern gschehn / Bitte | Kürzer |
-| Ich bin satt | I bin stad | "Satt" = ungewöhnlich in AT |
+| Gern geschehen | Gern gschehn / Bitte / Passt scho | Kürzer, wärmer |
+| Wie geht es Ihnen? | Wie geht's Ihnen? / Wie geht's? | Kürzer |
 | Entschuldigung | Entschuldigung / Tschuldigung | Gleich, aber kürzer |
+| Ich bin satt | I bin stad | "Satt" = ungewöhnlich in AT |
+| Prost | Prost / Zum Wohl | Gleich |
+| Alles Gute | Alles Gute / Ois Guade | "Ois Guade" = herzlicher |
+| Herzlichen Glückwunsch | Gratulation / Gratuliere | "Herzlichen Glückwunsch" = steif |
+| Frohe Weihnachten | Frohe Weihnachten / Fröhliche Weihnachten | Gleich |
+| Guten Rutsch | Guten Rutsch / An guatn Rutsch | Gleich |
+| Schönes Wochenende | Schönes Wochenende | Gleich |
+| Mahlzeit | Mahlzeit | AT-Standard-Mittagsgruß |
+
+**Wetter, Natur & Freizeit:**
+
+| ❌ Bundesdeutsch | ✅ Österreichisch | Warum |
+|-----------------|-------------------|-------|
+| es regnet | es regnet / es schüttet | Gleich |
+| Gewitter | Gewitter / Wetter | "A Wetter" = umgangssprachlich für Gewitter |
+| Hügel | Hügel / Bühel / Bichl | Regional |
+| Berg | Berg | Gleich, aber AT hat mehr davon |
+| Berghütte | Hütte / Alm | "Berghütte" = touristisch |
+| wandern | wandern / bergsteigen | Gleich |
+| Kneipe | Beisl / Wirtshaus | "Kneipe" = norddeutsch |
+| Gaststätte | Wirtshaus / Gasthaus | "Gaststätte" = formell |
+| Café | Kaffeehaus / Café | "Kaffeehaus" = Wiener Tradition |
+| Biergarten | Gastgarten / Schanigarten | "Biergarten" = bayerisch |
+| Karussell | Ringelspiel | AT-Klassiker |
+| Kirmes / Rummel | Prater / Kirchtag / Kirtag | Regional |
+| Silvester | Silvester | Gleich |
+| Fasching | Fasching | Gleich (nicht "Karneval"!) |
+| Karneval | Fasching | "Karneval" = Köln/Düsseldorf |
 
 **Check for:**
 - Any Bundesdeutsch vocabulary that would sound "piefkinesisch" in Austria
@@ -405,9 +565,13 @@ Go through **each category** below. For every issue found, note the file, the sp
 - Administrative/bureaucratic terms that sound German-German
 - Digital UX copy that uses unnecessarily stiff alternatives
 - Greetings and pleasantries that don't match Austrian convention
+- Verbs and expressions that reveal a non-Austrian writer
+- Shopping/commerce terms that use German-German conventions
 - Regional terms that feel wrong for the target audience's geography
 
-**Fix pattern:** Replace with Austrian equivalent. When in doubt, use the word your Wiener Nachbarin would use, not the one from a Hamburg textbook. For digital products: lean toward the modern Austrian educated register — not dialect, not Bundesdeutsch, not Amt.
+**Important:** Not every entry needs to go full dialect. For digital products, aim for the **modern Austrian educated register** — the language a 30-year-old Wiener*in uses at work. Not dialect, not Bundesdeutsch, not Amt. When a word is marked "umgangssprachlich" in the table, use it only if the brand voice allows casual tone.
+
+**Fix pattern:** Replace with Austrian equivalent. When in doubt, use the word your Wiener Nachbarin would use, not the one from a Hamburg textbook.
 
 ---
 
