@@ -7,6 +7,7 @@ Shared [Claude Code](https://claude.ai/code) skills for our ventures. Each skill
 | Skill | What it does | Install |
 |-------|-------------|---------|
 | [setup-gtm](./setup-gtm) | GTM + GA4 + Meta Pixel + PostHog + Consent Mode v2 + custom events | [↓ Install](#setup-gtm) |
+| [brand-identity](./brand-identity) | Interactive 6-phase brand workshop — inspo, personality, colors, assets, logo, website | [↓ Install](#brand-identity) |
 | [social-sharing](./social-sharing) | OG preview image (1200x630), favicon, meta tags, Twitter cards, JSON-LD | [↓ Install](#social-sharing) |
 | [edge-function](./edge-function) | Supabase Edge Function with auth, CORS, Zod validation, error handling | [↓ Install](#edge-function) |
 | [security-audit](./security-audit) | Scan for hardcoded secrets, missing RLS, XSS risks, unvalidated inputs | [↓ Install](#security-audit) |
@@ -21,7 +22,13 @@ Each skill is a single file. Pick the ones you need:
 ```bash
 mkdir -p ~/.claude/skills/setup-gtm && curl -sS -o ~/.claude/skills/setup-gtm/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/setup-gtm/SKILL.md
 ```
-Then in Claude Code: `/setup-gtm GTM-XXXXXXX G-XXXXXXX 1234567890 phc_xxxxx`
+Then in Claude Code: `/setup-gtm`
+
+### brand-identity
+```bash
+mkdir -p ~/.claude/skills/brand-identity && curl -sS -o ~/.claude/skills/brand-identity/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/brand-identity/SKILL.md
+```
+Then in Claude Code: `/brand-identity my-project`
 
 ### social-sharing
 ```bash
@@ -58,7 +65,7 @@ Then in Claude Code: `/e2e-tests landing-page`
 If you want everything:
 
 ```bash
-for skill in setup-gtm social-sharing edge-function security-audit pre-deploy e2e-tests; do
+for skill in setup-gtm brand-identity social-sharing edge-function security-audit pre-deploy e2e-tests; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
