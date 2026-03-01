@@ -43,6 +43,26 @@ Falls nicht: https://eu.posthog.com → Settings → Project API Key
 ```
 Wait for the user's answer before continuing.
 
+**5. Additional tools**
+```
+Wollt ihr noch andere Tools einbinden? (z.B. Hotjar, Clarity, TikTok Pixel, LinkedIn Insight Tag, Hubspot, etc.)
+
+Falls ja: Sag mir welches Tool + die jeweilige ID/Key.
+Falls nein: Einfach "nein" und wir machen weiter.
+```
+Wait for the user's answer before continuing.
+
+If the user wants additional tools, collect each tool name + ID. For each additional tool, create:
+- A **Constant variable** for the tool's ID/key
+- A **Pageview tag** (Custom HTML) that loads the tool's standard snippet, fires on All Pages, with `analytics_storage = granted` consent requirement
+- For each custom event: an additional **Custom HTML tag** that sends the event to that tool (if the tool supports custom events)
+
+Use the tool's official embed snippet. Common patterns:
+- **Hotjar:** `(function(h,o,t,j,a,r){...})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`
+- **Microsoft Clarity:** `(function(c,l,a,r,i,t,y){...})(window,document,"clarity","script","PROJECT_ID");`
+- **TikTok Pixel:** `ttq.load('PIXEL_ID'); ttq.page();`
+- **LinkedIn Insight Tag:** `_linkedin_partner_id = "PARTNER_ID"; ...`
+
 ---
 
 ## Step 1: Define custom events BEFORE generating anything
