@@ -16,9 +16,9 @@ No packages. No config. No dependencies. Just a `.md` file with structured instr
 
 ## Skills Overview
 
-We have **16 skills** in 4 categories. Each one handles a specific, well-scoped task.
+We have **17 skills** in 4 categories. Each one handles a specific, well-scoped task.
 
-### Quality Audits (8 skills)
+### Quality Audits (9 skills)
 
 The audit suite covers every layer of a web project — from the words on the page to the legal fine print. Each audit checks a distinct layer with no overlap between them, so you can run one, a few, or all eight without getting duplicate findings.
 
@@ -33,6 +33,7 @@ A good pre-launch workflow: run all 8 audits, fix critical issues, ship.
 | [mobile-audit](./mobile-audit) | Mobile | Core Web Vitals, responsive design, touch targets, performance, navigation | Before launch (Google ranks by CWV) |
 | [accessibility-audit](./accessibility-audit) | Accessibility | WCAG 2.2 Level AA — contrast, keyboard nav, ARIA, semantics | Before launch and after UI changes |
 | [legal-audit](./legal-audit) | Legal | DSGVO, ECG, FAGG, ePrivacy, cookie consent, Impressum (Austria) | Before launch and quarterly |
+| [health-claims-audit](./health-claims-audit) | Health Law | MPG 2021, EU-MDR, Health Claims VO, forbidden claims, wellness vs SaMD | Before publishing health-related copy |
 | [security-audit](./security-audit) | Security | Hardcoded secrets, missing RLS, XSS risks, unvalidated inputs | Before every deployment |
 
 **How the audits fit together:**
@@ -45,6 +46,7 @@ A good pre-launch workflow: run all 8 audits, fix critical issues, ship.
 /mobile-audit → Does it work on phones? (CWV, touch, responsive)
 /accessibility-audit   → Can everyone use it? (WCAG, keyboard, screen readers)
 /legal-audit  → Is it legally compliant? (DSGVO, Impressum, cookies)
+/health-claims-audit → Are health claims legal? (MPG, EU-MDR, Health Claims VO)
 /security-audit → Is it secure? (secrets, XSS, RLS, inputs)
 ```
 
@@ -92,10 +94,10 @@ mkdir -p ~/.claude/skills/SKILL_NAME && curl -sS -o ~/.claude/skills/SKILL_NAME/
 
 Then open Claude Code and type `/SKILL_NAME` to run it.
 
-### Install all 16 skills
+### Install all 17 skills
 
 ```bash
-for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit security-audit edge-function setup-gtm new-page social-sharing pre-deploy e2e-tests brand-identity; do
+for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit edge-function setup-gtm new-page social-sharing pre-deploy e2e-tests brand-identity; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
@@ -104,10 +106,10 @@ done
 
 ### Install just the audits
 
-If you only want the 8 audit skills:
+If you only want the 9 audit skills:
 
 ```bash
-for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit security-audit; do
+for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
@@ -126,6 +128,7 @@ mkdir -p ~/.claude/skills/at-copy-audit && curl -sS -o ~/.claude/skills/at-copy-
 mkdir -p ~/.claude/skills/mobile-audit && curl -sS -o ~/.claude/skills/mobile-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/mobile-audit/SKILL.md
 mkdir -p ~/.claude/skills/accessibility-audit && curl -sS -o ~/.claude/skills/accessibility-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/accessibility-audit/SKILL.md
 mkdir -p ~/.claude/skills/legal-audit && curl -sS -o ~/.claude/skills/legal-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/legal-audit/SKILL.md
+mkdir -p ~/.claude/skills/health-claims-audit && curl -sS -o ~/.claude/skills/health-claims-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/health-claims-audit/SKILL.md
 mkdir -p ~/.claude/skills/security-audit && curl -sS -o ~/.claude/skills/security-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/security-audit/SKILL.md
 
 # Scaffolding & Setup
