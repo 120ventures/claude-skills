@@ -42,6 +42,8 @@ Check:
 - Do all Edge Functions check `Authorization` header?
 - Are there any Edge Functions without auth checks?
 - Check `supabase/` for migration files — are RLS policies enabled on all tables?
+- Do admin/sensitive Edge Functions check user roles (not just auth presence)?
+- Are there endpoints that only check authentication but skip authorization (e.g., any logged-in user can access admin actions)?
 
 ### 6. CORS
 Check Edge Functions for:
@@ -58,6 +60,7 @@ Check:
 Check:
 - Is `package-lock.json` committed? (should be)
 - Any `postinstall` or `preinstall` scripts in `package.json`?
+- Run `npm audit` or check for known vulnerabilities in dependencies
 
 ### 9. Rate Limiting
 Check:
@@ -72,6 +75,25 @@ Check:
 - Are database inputs parameterized or using ORM/query builders (not raw string concatenation)?
 - Are file uploads validated for type, size, and content?
 - Is user-provided content sanitized before rendering or storing?
+
+### 11. Error Detail Leaking
+Check Edge Functions for:
+- Responses that expose `error.message`, `error.stack`, or raw exception details to the client
+- API error responses should return generic messages — internal details only in server logs
+- Search for patterns like `JSON.stringify({ error: error.message` or `stack` in response bodies
+
+### 12. Sensitive Data in Logs
+Search for:
+- `console.log` / `console.info` / `console.debug` that output user data, tokens, passwords, or secrets
+- Logging of full request bodies that may contain sensitive fields
+- Any `console.*` in `src/` that references `token`, `password`, `secret`, `authorization`, or `user` objects
+
+### 13. Role-Based Authorization
+Check:
+- Are there admin-only or role-restricted Edge Functions?
+- Do they verify the user's role/permissions beyond just checking auth?
+- Search for role checks like `user.role`, `user_metadata.role`, or custom claims
+- Flag admin endpoints that only check `Authorization` header without role verification
 
 ## Output Format
 
@@ -94,3 +116,7 @@ Report findings as:
 ```
 
 Be specific — always include file paths and line numbers. Don't flag false positives. Supabase `anon` key in frontend is OK. `.select()` from frontend with RLS is OK.
+
+## Notes
+- Checks 11-13 were added to align with SECURITY_RULES.md in the boilerplate
+- The audit should cover all 13 checks before producing the report
