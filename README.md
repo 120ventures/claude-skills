@@ -1,125 +1,121 @@
 # 120 Ventures — Claude Code Skills
 
-Shared [Claude Code](https://claude.ai/code) skills for our ventures. Each skill automates a recurring setup task so you don't have to do it by hand.
+Shared [Claude Code](https://claude.ai/code) skills for our ventures. Each skill automates a recurring task so you don't have to do it by hand.
+
+---
 
 ## Available Skills
 
-| Skill | What it does | Install |
-|-------|-------------|---------|
-| [setup-gtm](./setup-gtm) | GTM + GA4 + Meta Pixel + PostHog + Consent Mode v2 + custom events | [↓ Install](#setup-gtm) |
-| [brand-identity](./brand-identity) | Interactive 6-phase brand workshop — inspo, personality, colors, assets, logo, website | [↓ Install](#brand-identity) |
-| [social-sharing](./social-sharing) | OG preview image (1200x630), favicon, meta tags, Twitter cards, JSON-LD | [↓ Install](#social-sharing) |
-| [edge-function](./edge-function) | Supabase Edge Function with auth, CORS, Zod validation, error handling | [↓ Install](#edge-function) |
-| [ux-audit](./ux-audit) | UX audit — cognitive load, decision-making, Nielsen's heuristics, system feedback | [↓ Install](#ux-audit) |
-| [ui-audit](./ui-audit) | UI audit — visual hierarchy, spacing, typography, color, Gestalt grouping, consistency | [↓ Install](#ui-audit) |
-| [cro-audit](./cro-audit) | CRO audit — trust placement, funnel flow, persuasion structure, conversion psychology | [↓ Install](#cro-audit) |
-| [copy-audit](./copy-audit) | Copy audit — clarity, tone, PAS framework, microcopy, Austrian German localization | [↓ Install](#copy-audit) |
-| [a11y-audit](./a11y-audit) | Accessibility audit + auto-fix — WCAG 2.2 Level AA + a11y project checklist | [↓ Install](#a11y-audit) |
-| [mobile-audit](./mobile-audit) | Mobile audit — Core Web Vitals, responsive design, touch targets, performance, navigation | [↓ Install](#mobile-audit) |
-| [legal-audit](./legal-audit) | Legal compliance audit — DSGVO, ECG, FAGG, ePrivacy, cookie consent, Impressum (Austria) | [↓ Install](#legal-audit) |
-| [security-audit](./security-audit) | Scan for hardcoded secrets, missing RLS, XSS risks, unvalidated inputs | [↓ Install](#security-audit) |
-| [pre-deploy](./pre-deploy) | Pre-deployment checklist — types, build, lint, env vars, security, git status | [↓ Install](#pre-deploy) |
-| [e2e-tests](./e2e-tests) | Generate Playwright E2E tests for a page or feature | [↓ Install](#e2e-tests) |
+### Quality Audits
 
-## How to install
+Run these regularly to catch issues before users (or Google) do. Each audit covers a distinct layer — no overlap between them.
 
-Each skill is a single file. Pick the ones you need:
+| Skill | Layer | What it checks |
+|-------|-------|---------------|
+| [ux-audit](./ux-audit) | Behavior | Cognitive load, decision-making, Nielsen's heuristics, system feedback |
+| [ui-audit](./ui-audit) | Visual | Visual hierarchy, spacing, typography, color, Gestalt grouping, consistency |
+| [cro-audit](./cro-audit) | Conversion | Trust placement, funnel flow, persuasion structure, conversion psychology |
+| [copy-audit](./copy-audit) | Words | Clarity, tone, PAS framework, microcopy, Austrian German localization |
+| [mobile-audit](./mobile-audit) | Mobile | Core Web Vitals, responsive design, touch targets, performance, navigation |
+| [a11y-audit](./a11y-audit) | Accessibility | WCAG 2.2 Level AA — contrast, keyboard nav, ARIA, semantics |
+| [legal-audit](./legal-audit) | Legal | DSGVO, ECG, FAGG, ePrivacy, cookie consent, Impressum (Austria) |
+| [security-audit](./security-audit) | Security | Hardcoded secrets, missing RLS, XSS risks, unvalidated inputs |
 
-### setup-gtm
+### Scaffolding & Setup
+
+Generate boilerplate for common project needs.
+
+| Skill | What it does |
+|-------|-------------|
+| [edge-function](./edge-function) | Supabase Edge Function with auth, CORS, Zod validation, error handling |
+| [setup-gtm](./setup-gtm) | GTM container + GA4 + Meta Pixel + PostHog + Consent Mode v2 + custom events |
+| [new-page](./new-page) | New page with route, lazy-loading, SEO meta, and mobile-first layout |
+| [social-sharing](./social-sharing) | OG preview image (1200x630), favicon, meta tags, Twitter cards, JSON-LD |
+
+### Workflow & CI
+
+Pre-launch checks and test generation.
+
+| Skill | What it does |
+|-------|-------------|
+| [pre-deploy](./pre-deploy) | Pre-deployment checklist — types, build, lint, env vars, security, git status |
+| [e2e-tests](./e2e-tests) | Generate Playwright E2E tests for a page or feature |
+
+### Brand & Strategy
+
+Foundational work for new ventures.
+
+| Skill | What it does |
+|-------|-------------|
+| [brand-identity](./brand-identity) | Interactive 6-phase brand workshop — inspo, personality, colors, assets, logo, website |
+
+---
+
+## Install
+
+Each skill is a single `.md` file. Pick what you need, or install everything.
+
+### Install one skill
+
 ```bash
-mkdir -p ~/.claude/skills/setup-gtm && curl -sS -o ~/.claude/skills/setup-gtm/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/setup-gtm/SKILL.md
+# Replace SKILL_NAME with any skill from the tables above
+mkdir -p ~/.claude/skills/SKILL_NAME && curl -sS -o ~/.claude/skills/SKILL_NAME/SKILL.md \
+  https://raw.githubusercontent.com/120ventures/claude-skills/main/SKILL_NAME/SKILL.md
 ```
-Then in Claude Code: `/setup-gtm`
 
-### brand-identity
+Then in Claude Code: `/SKILL_NAME`
+
+<details>
+<summary>Individual install commands (copy-paste ready)</summary>
+
 ```bash
+# Quality Audits
+mkdir -p ~/.claude/skills/ux-audit && curl -sS -o ~/.claude/skills/ux-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/ux-audit/SKILL.md
+mkdir -p ~/.claude/skills/ui-audit && curl -sS -o ~/.claude/skills/ui-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/ui-audit/SKILL.md
+mkdir -p ~/.claude/skills/cro-audit && curl -sS -o ~/.claude/skills/cro-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/cro-audit/SKILL.md
+mkdir -p ~/.claude/skills/copy-audit && curl -sS -o ~/.claude/skills/copy-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/copy-audit/SKILL.md
+mkdir -p ~/.claude/skills/mobile-audit && curl -sS -o ~/.claude/skills/mobile-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/mobile-audit/SKILL.md
+mkdir -p ~/.claude/skills/a11y-audit && curl -sS -o ~/.claude/skills/a11y-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/a11y-audit/SKILL.md
+mkdir -p ~/.claude/skills/legal-audit && curl -sS -o ~/.claude/skills/legal-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/legal-audit/SKILL.md
+mkdir -p ~/.claude/skills/security-audit && curl -sS -o ~/.claude/skills/security-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/security-audit/SKILL.md
+
+# Scaffolding & Setup
+mkdir -p ~/.claude/skills/edge-function && curl -sS -o ~/.claude/skills/edge-function/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/edge-function/SKILL.md
+mkdir -p ~/.claude/skills/setup-gtm && curl -sS -o ~/.claude/skills/setup-gtm/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/setup-gtm/SKILL.md
+mkdir -p ~/.claude/skills/social-sharing && curl -sS -o ~/.claude/skills/social-sharing/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/social-sharing/SKILL.md
+
+# Workflow & CI
+mkdir -p ~/.claude/skills/pre-deploy && curl -sS -o ~/.claude/skills/pre-deploy/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/pre-deploy/SKILL.md
+mkdir -p ~/.claude/skills/e2e-tests && curl -sS -o ~/.claude/skills/e2e-tests/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/e2e-tests/SKILL.md
+
+# Brand & Strategy
 mkdir -p ~/.claude/skills/brand-identity && curl -sS -o ~/.claude/skills/brand-identity/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/brand-identity/SKILL.md
 ```
-Then in Claude Code: `/brand-identity my-project`
 
-### social-sharing
-```bash
-mkdir -p ~/.claude/skills/social-sharing && curl -sS -o ~/.claude/skills/social-sharing/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/social-sharing/SKILL.md
-```
-Then in Claude Code: `/social-sharing my-project`
+</details>
 
-### edge-function
-```bash
-mkdir -p ~/.claude/skills/edge-function && curl -sS -o ~/.claude/skills/edge-function/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/edge-function/SKILL.md
-```
-Then in Claude Code: `/edge-function save-booking`
-
-### ux-audit
-```bash
-mkdir -p ~/.claude/skills/ux-audit && curl -sS -o ~/.claude/skills/ux-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/ux-audit/SKILL.md
-```
-Then in Claude Code: `/ux-audit`
-
-### ui-audit
-```bash
-mkdir -p ~/.claude/skills/ui-audit && curl -sS -o ~/.claude/skills/ui-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/ui-audit/SKILL.md
-```
-Then in Claude Code: `/ui-audit`
-
-### cro-audit
-```bash
-mkdir -p ~/.claude/skills/cro-audit && curl -sS -o ~/.claude/skills/cro-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/cro-audit/SKILL.md
-```
-Then in Claude Code: `/cro-audit`
-
-### copy-audit
-```bash
-mkdir -p ~/.claude/skills/copy-audit && curl -sS -o ~/.claude/skills/copy-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/copy-audit/SKILL.md
-```
-Then in Claude Code: `/copy-audit`
-
-### a11y-audit
-```bash
-mkdir -p ~/.claude/skills/a11y-audit && curl -sS -o ~/.claude/skills/a11y-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/a11y-audit/SKILL.md
-```
-Then in Claude Code: `/a11y-audit`
-
-### mobile-audit
-```bash
-mkdir -p ~/.claude/skills/mobile-audit && curl -sS -o ~/.claude/skills/mobile-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/mobile-audit/SKILL.md
-```
-Then in Claude Code: `/mobile-audit`
-
-### legal-audit
-```bash
-mkdir -p ~/.claude/skills/legal-audit && curl -sS -o ~/.claude/skills/legal-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/legal-audit/SKILL.md
-```
-Then in Claude Code: `/legal-audit`
-
-### security-audit
-```bash
-mkdir -p ~/.claude/skills/security-audit && curl -sS -o ~/.claude/skills/security-audit/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/security-audit/SKILL.md
-```
-Then in Claude Code: `/security-audit`
-
-### pre-deploy
-```bash
-mkdir -p ~/.claude/skills/pre-deploy && curl -sS -o ~/.claude/skills/pre-deploy/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/pre-deploy/SKILL.md
-```
-Then in Claude Code: `/pre-deploy`
-
-### e2e-tests
-```bash
-mkdir -p ~/.claude/skills/e2e-tests && curl -sS -o ~/.claude/skills/e2e-tests/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/e2e-tests/SKILL.md
-```
-Then in Claude Code: `/e2e-tests landing-page`
-
-## Install all at once
-
-If you want everything:
+### Install all at once
 
 ```bash
-for skill in setup-gtm brand-identity social-sharing edge-function ux-audit ui-audit cro-audit copy-audit mobile-audit a11y-audit legal-audit security-audit pre-deploy e2e-tests; do
+for skill in ux-audit ui-audit cro-audit copy-audit mobile-audit a11y-audit legal-audit security-audit edge-function setup-gtm social-sharing pre-deploy e2e-tests brand-identity; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
 done
 ```
+
+### Install by category
+
+```bash
+# All 8 audits
+for skill in ux-audit ui-audit cro-audit copy-audit mobile-audit a11y-audit legal-audit security-audit; do
+  mkdir -p ~/.claude/skills/$skill
+  curl -sS -o ~/.claude/skills/$skill/SKILL.md \
+    https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
+done
+```
+
+---
 
 ## What are Claude Code skills?
 
