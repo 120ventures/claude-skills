@@ -229,3 +229,4 @@ Dann nutze den `frontend-design` Skill um die Website zu bauen. Übergib die kom
 6. **Phase 4–5: Brand-Theme** — gewählte Farben/Typo anwenden, damit der User das Ergebnis live sieht
 7. **Bestehende Projekt-Conventions respektieren** — lies CLAUDE.md, nutze vorhandenen Tech-Stack
 8. **Kreativ und mutig sein** — keine generischen Vorschläge, jedes Projekt verdient einzigartige Lösungen
+9. **Copy-CTA auf jeder Workshop-Page** — Jede generierte Brand-Page (Personality, Colors, Logo Drafts, etc.) MUSS am Ende einen "Ergebnis kopieren" Button haben, der alle Entscheidungen als formatierten Markdown-Text in die Zwischenablage kopiert. Nutze die shared Komponente `@/components/brand/CopyResultsButton`. So kann der User die Ergebnisse einfach in den Chat einfügen und sie als Kontext für die nächste Phase nutzen.
