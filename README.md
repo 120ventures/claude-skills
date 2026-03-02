@@ -16,13 +16,13 @@ No packages. No config. No dependencies. Just a `.md` file with structured instr
 
 ## Skills Overview
 
-We have **17 skills** in 4 categories. Each one handles a specific, well-scoped task.
+We have **15 skills** in 4 categories. Each one handles a specific, well-scoped task.
 
 ### Quality Audits (9 skills)
 
-The audit suite covers every layer of a web project — from the words on the page to the legal fine print. Each audit checks a distinct layer with no overlap between them, so you can run one, a few, or all eight without getting duplicate findings.
+The audit suite covers every layer of a web project — from the words on the page to the legal fine print. Each audit checks a distinct layer with no overlap between them, so you can run one, a few, or all nine without getting duplicate findings.
 
-A good pre-launch workflow: run all 8 audits, fix critical issues, ship.
+A good pre-launch workflow: run all 9 audits, fix critical issues, ship.
 
 | Skill | Layer | What it checks | When to run |
 |-------|-------|---------------|-------------|
@@ -34,7 +34,7 @@ A good pre-launch workflow: run all 8 audits, fix critical issues, ship.
 | [accessibility-audit](./accessibility-audit) | Accessibility | WCAG 2.2 Level AA — contrast, keyboard nav, ARIA, semantics | Before launch and after UI changes |
 | [legal-audit](./legal-audit) | Legal | DSGVO, ECG, FAGG, ePrivacy, cookie consent, Impressum (Austria) | Before launch and quarterly |
 | [health-claims-audit](./health-claims-audit) | Health Law | MPG 2021, EU-MDR, Health Claims VO, forbidden claims, wellness vs SaMD | Before publishing health-related copy |
-| [security-audit](./security-audit) | Security | Hardcoded secrets, missing RLS, XSS risks, unvalidated inputs | Before every deployment |
+| [security-audit](./security-audit) | Security | Hardcoded secrets, missing RLS, XSS risks, unvalidated inputs, rate limiting | Before every deployment |
 
 **How the audits fit together:**
 
@@ -50,7 +50,7 @@ A good pre-launch workflow: run all 8 audits, fix critical issues, ship.
 /security-audit → Is it secure? (secrets, XSS, RLS, inputs)
 ```
 
-### Scaffolding & Setup (4 skills)
+### Scaffolding & Setup (3 skills)
 
 Skip the boilerplate. These skills generate production-ready code for common project needs, following our conventions and stack (React + Vite + TypeScript + Tailwind + Supabase).
 
@@ -58,7 +58,6 @@ Skip the boilerplate. These skills generate production-ready code for common pro
 |-------|------------------|---------|
 | [edge-function](./edge-function) | Supabase Edge Function with auth, CORS, Zod validation, error handling | `/edge-function newsletter-signup` |
 | [setup-gtm](./setup-gtm) | GTM container + GA4 + Meta Pixel + PostHog + Consent Mode v2 | `/setup-gtm` |
-| [new-page](./new-page) | New page with route, lazy-loading, SEO meta, mobile-first layout | `/new-page pricing` |
 | [social-sharing](./social-sharing) | OG image (1200x630), favicon, meta tags, Twitter cards, JSON-LD | `/social-sharing my-project` |
 
 ### Workflow & CI (2 skills)
@@ -94,10 +93,10 @@ mkdir -p ~/.claude/skills/SKILL_NAME && curl -sS -o ~/.claude/skills/SKILL_NAME/
 
 Then open Claude Code and type `/SKILL_NAME` to run it.
 
-### Install all 17 skills
+### Install all 15 skills
 
 ```bash
-for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit edge-function setup-gtm new-page social-sharing pre-deploy e2e-tests brand-identity; do
+for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit edge-function setup-gtm social-sharing pre-deploy e2e-tests brand-identity; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
@@ -134,7 +133,6 @@ mkdir -p ~/.claude/skills/security-audit && curl -sS -o ~/.claude/skills/securit
 # Scaffolding & Setup
 mkdir -p ~/.claude/skills/edge-function && curl -sS -o ~/.claude/skills/edge-function/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/edge-function/SKILL.md
 mkdir -p ~/.claude/skills/setup-gtm && curl -sS -o ~/.claude/skills/setup-gtm/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/setup-gtm/SKILL.md
-mkdir -p ~/.claude/skills/new-page && curl -sS -o ~/.claude/skills/new-page/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/new-page/SKILL.md
 mkdir -p ~/.claude/skills/social-sharing && curl -sS -o ~/.claude/skills/social-sharing/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/social-sharing/SKILL.md
 
 # Workflow & CI
