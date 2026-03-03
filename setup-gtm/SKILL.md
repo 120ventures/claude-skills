@@ -117,40 +117,19 @@ Always include these base triggers:
 | Trigger | Type | Details |
 |---------|------|---------|
 | All Pages | Page View | Standard pageview trigger |
-| Consent Initialization - All Pages | Consent Initialization | Fires before any other tags |
 | Consent Update | Custom Event | Event name: `consent_update` |
 
 Plus one Custom Event trigger per custom event agreed in Step 0 (event name matches the `snake_case` name).
 
+**NOTE:** Do NOT create a "Consent Initialization" trigger or a "Consent Mode - Default" tag in the GTM container. Consent defaults are set in `index.html` before GTM loads (see Step 3). Setting defaults inside GTM causes them to override the region-specific defaults and results in 0% consent rate for non-EEA traffic.
+
 ### Tags
 
-All tags below that track user data must have **Consent Mode requirement: `analytics_storage = granted`** (except the Consent Default tag itself).
+All tags below that track user data must have **Consent Mode requirement: `analytics_storage = granted`**.
 
 #### Base tags (always included):
 
-**1. Consent Mode — Default**
-- **Type:** Custom HTML
-- **Fires on:** Consent Initialization - All Pages
-- **Tag firing priority:** 100 (highest, fires first)
-- **Code:**
-```html
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    'analytics_storage': 'denied',
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'functionality_storage': 'granted',
-    'security_storage': 'granted',
-    'wait_for_update': 500
-  });
-</script>
-```
-- No consent requirement on this tag (it IS the consent setup)
-
-**2. Consent Mode — Update**
+**1. Consent Mode — Update**
 - **Type:** Custom HTML
 - **Fires on:** Consent Update trigger (`consent_update`)
 - **Code:**
@@ -167,7 +146,7 @@ All tags below that track user data must have **Consent Mode requirement: `analy
 ```
 - No consent requirement on this tag
 
-**3. GTM to Analytics (GA4 Pageview)**
+**2. GTM to Analytics (GA4 Pageview)**
 - **Type:** Google Tag (`googtag`)
 - **Tag ID:** the GA4 Measurement ID variable
 - **Fires on:** All Pages (NOT Consent Initialization — the init trigger fires too early for GA4 to receive valid page data)
@@ -220,9 +199,44 @@ Make sure each custom event from Step 0 is actually fired somewhere in the codeb
 
 ---
 
-## Step 3: Add GTM snippet to `index.html`
+## Step 3: Add Consent Defaults + GTM snippet to `index.html`
+
+**CRITICAL: Consent defaults MUST be set BEFORE the GTM script loads.** This is the Google-recommended approach and prevents the 0% consent rate issue. Do NOT set consent defaults inside the GTM container — that overrides region-specific rules.
 
 **In `<head>`** — add right after `<meta name="viewport">`:
+
+First, the region-specific consent defaults:
+```html
+<!-- Consent Mode v2 — region-specific defaults (before GTM) -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+// Default: grant all for non-EEA regions
+gtag('consent', 'default', {
+  'analytics_storage': 'granted',
+  'ad_storage': 'granted',
+  'ad_user_data': 'granted',
+  'ad_personalization': 'granted',
+  'functionality_storage': 'granted',
+  'security_storage': 'granted',
+});
+
+// EEA + UK + CH: deny until user consents (GDPR/DSGVO)
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'region': ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI',
+    'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL',
+    'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'IS', 'LI', 'NO', 'GB', 'CH'],
+  'wait_for_update': 500,
+});
+</script>
+```
+
+Then, immediately after, the GTM container script:
 ```html
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -242,6 +256,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ```
 
 Replace `GTM_ID_HERE` with the actual GTM Container ID from the arguments.
+
+**Why this order matters:** Google's Consent Mode reads defaults synchronously before any tags fire. If defaults are set inside a GTM tag (even a Consent Initialization tag), they can override the region-specific `region` parameter with a global `denied`, causing 0% consent rate for all non-EEA traffic.
 
 ---
 
@@ -301,21 +317,28 @@ After completing, tell the user:
 ```
 Done! Here's what was set up:
 
+✅ Region-specific Consent Mode v2 defaults in index.html (before GTM)
 ✅ GTM snippet added to index.html
 ✅ dataLayer.push() wired into event tracking
 ✅ Cookie consent banner integrated with Consent Mode v2
 ✅ gtm-container.json generated with:
-   - Google Consent Mode v2 (default denied + update on consent)
+   - Consent Mode update tag (fires on cookie banner interaction)
    - GA4 pageview + [N] custom events
    - Meta Pixel pageview + [N] custom events
    - PostHog pageview + [N] custom events (EU cloud)
+
+How consent works:
+- Non-EEA visitors: all consent granted by default → full tracking immediately
+- EEA/UK/CH visitors: all consent denied → tracking only after cookie banner acceptance
 
 Next steps:
 1. Go to https://tagmanager.google.com → your container
 2. Admin → Import Container → upload gtm-container.json
 3. Choose "Existing workspace" → Merge → Overwrite conflicting tags
-4. Review the imported tags, then click "Submit" → "Publish"
-5. Test: accept cookies, then check GTM Preview Mode — consent rate should be > 0%
+4. IMPORTANT: Make sure there is NO "Consent Mode - Default" tag in the container
+   (defaults are handled in index.html — a GTM default tag would override them)
+5. Review the imported tags, then click "Submit" → "Publish"
+6. Test: check GTM Preview Mode — non-EEA traffic should show consent as granted
 ```
 
 ---
@@ -324,13 +347,13 @@ Next steps:
 
 - PostHog host is ALWAYS `https://eu.i.posthog.com` (EU cloud) unless the user's snippet explicitly uses a different host (e.g. `https://us.i.posthog.com`)
 - All tracking tags require `analytics_storage = granted` via Consent Mode
-- The consent default tag fires on Consent Initialization, NOT on Page View
+- **Consent defaults MUST be set in `index.html` before the GTM script, NOT inside GTM** — this enables region-specific defaults. A "Consent Mode - Default" tag inside GTM will override the region parameter and cause 0% consent rate for non-EEA traffic.
 - Do NOT install any npm packages — all tracking loads via GTM
 - Follow the project's existing code style in `index.html`
 - The generated JSON must be valid GTM export format (exportFormatVersion 2)
 - **Maximum 5 custom events** — always clarify events with the user first
 - **Always ask about the conversion goal before generating anything**
-- **GA4 config tag fires on "All Pages" trigger, NOT "Consent Initialization"** — the init trigger fires too early for GA4 to receive valid page data. Only the Consent Default tag should use the init trigger.
+- **GA4 config tag fires on "All Pages" trigger, NOT "Consent Initialization"** — the init trigger fires too early for GA4 to receive valid page data.
 - **Consent update event name must be exactly `consent_update`** — this must match between the cookie banner's `dataLayer.push({ event: '...' })` and the GTM trigger. A mismatch = 0% consent rate.
 - **Always push gtag consent updates via dataLayer** — never rely on `window.gtag` existing. Use `window.dataLayer.push(arguments)` pattern instead.
 - **Always verify or create a cookie consent banner** as part of this skill — GTM Consent Mode is useless without one
@@ -356,10 +379,17 @@ These rules are **non-negotiable** for the JSON to import successfully into GTM:
 
 4. **Valid trigger types:**
    - `"PAGEVIEW"` — All Pages
-   - `"INIT"` — Consent Initialization
    - `"CUSTOM_EVENT"` — Custom Event
 
 5. **Always validate the JSON** before telling the user to import it:
    ```bash
    python3 -c "import json; json.load(open('gtm-container.json')); print('Valid JSON')"
    ```
+
+## Pitfall: 0% Consent Rate (learned from production issue)
+
+**Symptom:** GTM diagnostics shows "0% consent rate detected in some regions" and "100% of consent signals are marked as denied" — even outside the EEA.
+
+**Root cause:** A "Consent Mode - Default" tag inside GTM that sets all consent to `denied` globally (without a `region` parameter). This overrides any region-specific defaults set in `index.html`.
+
+**Fix:** Remove any "Consent Mode - Default" tag from the GTM container. Set consent defaults exclusively in `index.html` before the GTM script, using the `region` parameter to differentiate EEA vs. rest of world. The GTM container should only contain a "Consent Mode - Update" tag that fires on the `consent_update` event from the cookie banner.
