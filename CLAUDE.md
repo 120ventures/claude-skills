@@ -2,7 +2,7 @@
 
 ## Adding or Removing Skills
 
-When a skill is **added, removed, or renamed** in this repo, the `README.md` **must** be updated in the same commit:
+When a skill is **added, removed, renamed, or modified** in this repo, the `README.md` **must** be updated in the same commit:
 
 1. Update the skill count in "Skills Overview"
 2. Add/remove the skill row in the correct category table
@@ -13,4 +13,6 @@ When a skill is **added, removed, or renamed** in this repo, the `README.md` **m
    - "Install just the audits" loop (if audit skill)
    - Individual install commands in the `<details>` block
 
-Never commit a new skill directory without the corresponding README update.
+6. Update skill descriptions if they changed in `SKILL.md`
+
+Never commit a new or modified skill without the corresponding README update.
