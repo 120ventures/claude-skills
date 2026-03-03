@@ -55,6 +55,8 @@ Bitte den User:
 > - **Screenshots** von Seiten, Layouts oder Details die dich ansprechen
 > - **Elemente** die dir besonders gefallen (Farben, Typografie, Animationen, Vibes)
 >
+> **Tipp:** Auf https://www.awwwards.com/ findest du preisgekrönte Websites als Inspiration — einfach durchstöbern und Links schicken, die dich ansprechen.
+>
 > Hau einfach alles rein — je mehr, desto besser. Sag 'fertig' wenn du alles hast."
 
 Wenn der User Links schickt → analysiere sie mit `WebFetch` (Farbpaletten, Typografie, Layout-Patterns, Tonalität).
