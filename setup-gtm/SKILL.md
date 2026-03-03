@@ -322,7 +322,7 @@ Next steps:
 
 ## Rules
 
-- PostHog host is ALWAYS `https://eu.i.posthog.com` (EU cloud)
+- PostHog host is ALWAYS `https://eu.i.posthog.com` (EU cloud) unless the user's snippet explicitly uses a different host (e.g. `https://us.i.posthog.com`)
 - All tracking tags require `analytics_storage = granted` via Consent Mode
 - The consent default tag fires on Consent Initialization, NOT on Page View
 - Do NOT install any npm packages — all tracking loads via GTM
@@ -334,3 +334,32 @@ Next steps:
 - **Consent update event name must be exactly `consent_update`** — this must match between the cookie banner's `dataLayer.push({ event: '...' })` and the GTM trigger. A mismatch = 0% consent rate.
 - **Always push gtag consent updates via dataLayer** — never rely on `window.gtag` existing. Use `window.dataLayer.push(arguments)` pattern instead.
 - **Always verify or create a cookie consent banner** as part of this skill — GTM Consent Mode is useless without one
+- **Each tool (GA4, Meta, PostHog, etc.) is optional** — the user can skip any tool. Only generate variables, tags, and triggers for tools the user actually provides IDs for.
+
+## GTM Container JSON Format — Critical Rules (learned from import failures)
+
+These rules are **non-negotiable** for the JSON to import successfully into GTM:
+
+1. **Custom HTML tag type MUST be lowercase `"html"`**, NOT `"HTML"`. GTM rejects uppercase.
+   ```json
+   "type": "html"    ✅ CORRECT
+   "type": "HTML"    ❌ REJECTED — "Unbekannter Entitätstyp"
+   ```
+
+2. **Do NOT include `consentSettings` in the JSON export.** GTM's import parser does not understand the `consentSettings` object format. The import will fail with "Argument is not an object: analytics_storage". Instead, tell the user to set consent requirements manually per tag in the GTM UI after import (Tag → Advanced Settings → Consent Settings → Require additional consent → `analytics_storage`).
+
+3. **Valid tag types for GTM container JSON:**
+   - `"html"` — Custom HTML (lowercase!)
+   - `"googtag"` — Google Tag (gtag.js config)
+   - `"gaawe"` — GA4 Event
+   - `"c"` — Constant variable
+
+4. **Valid trigger types:**
+   - `"PAGEVIEW"` — All Pages
+   - `"INIT"` — Consent Initialization
+   - `"CUSTOM_EVENT"` — Custom Event
+
+5. **Always validate the JSON** before telling the user to import it:
+   ```bash
+   python3 -c "import json; json.load(open('gtm-container.json')); print('Valid JSON')"
+   ```
