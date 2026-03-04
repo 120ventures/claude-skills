@@ -16,7 +16,7 @@ No packages. No config. No dependencies. Just a `.md` file with structured instr
 
 ## Skills Overview
 
-We have **17 skills** in 4 categories. Each one handles a specific, well-scoped task.
+We have **20 skills** in 6 categories. Each one handles a specific, well-scoped task.
 
 ### Quality Audits (9 skills)
 
@@ -50,7 +50,7 @@ A good pre-launch workflow: run all 9 audits, fix critical issues, ship.
 /security-audit → Is it secure? (secrets, XSS, RLS, inputs)
 ```
 
-### Scaffolding & Setup (4 skills)
+### Scaffolding & Setup (6 skills)
 
 Skip the boilerplate. These skills generate production-ready code for common project needs, following our conventions and stack (React + Vite + TypeScript + Tailwind + Supabase).
 
@@ -58,6 +58,8 @@ Skip the boilerplate. These skills generate production-ready code for common pro
 |-------|------------------|---------|
 | [bot-prevention](./bot-prevention) | Cloudflare Turnstile bot protection + DB-based rate limiting (no npm packages) | `/bot-prevention` |
 | [edge-function](./edge-function) | Supabase Edge Function with auth, CORS, Zod validation, error handling | `/edge-function newsletter-signup` |
+| [legal-pages](./legal-pages) | DSGVO-compliant Austrian legal pages — Datenschutz, Impressum, AGB, Cookie-Hinweis | `/legal-pages` |
+| [exit-intent-survey](./exit-intent-survey) | Exit intent survey — detection hook, UI component, edge function, DB migration | `/exit-intent-survey` |
 | [setup-gtm](./setup-gtm) | GTM container + GA4 + Meta Pixel + PostHog + Consent Mode v2 | `/setup-gtm` |
 | [social-sharing](./social-sharing) | OG image (1200x630), favicon, meta tags, Twitter cards, JSON-LD | `/social-sharing my-project` |
 
@@ -70,13 +72,14 @@ Pre-launch checks and test generation. Run `/pre-deploy` before every push. Run 
 | [pre-deploy](./pre-deploy) | Pre-deployment checklist — types, build, lint, env vars, security, git status | `/pre-deploy` |
 | [e2e-tests](./e2e-tests) | Generate Playwright E2E tests for a page or feature | `/e2e-tests landing-page` |
 
-### Research & Strategy (2 skills)
+### Research & Strategy (3 skills)
 
 For the very beginning of a new venture — before any code is written.
 
 | Skill | What it does | Example |
 |-------|-------------|---------|
 | [brand-identity](./brand-identity) | Interactive 6-phase brand workshop — inspo, personality, colors, assets, logo, website | `/brand-identity my-project` |
+| [business-design](./business-design) | Interactive business design workshop — venture thesis, lean canvas, hypotheses, validation roadmap, decision matrix | `/business-design` |
 | [venture-dd](./venture-dd) | Structured due diligence — 5 hypotheses, competitor deep dive, TAM/SAM/SOM, unit economics | `/venture-dd` |
 
 ---
@@ -95,10 +98,10 @@ mkdir -p ~/.claude/skills/SKILL_NAME && curl -sS -o ~/.claude/skills/SKILL_NAME/
 
 Then open Claude Code and type `/SKILL_NAME` to run it.
 
-### Install all 17 skills
+### Install all 20 skills
 
 ```bash
-for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit bot-prevention edge-function setup-gtm social-sharing pre-deploy e2e-tests brand-identity venture-dd; do
+for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit bot-prevention edge-function legal-pages exit-intent-survey setup-gtm social-sharing pre-deploy e2e-tests brand-identity business-design venture-dd; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
@@ -135,6 +138,8 @@ mkdir -p ~/.claude/skills/security-audit && curl -sS -o ~/.claude/skills/securit
 # Scaffolding & Setup
 mkdir -p ~/.claude/skills/bot-prevention && curl -sS -o ~/.claude/skills/bot-prevention/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/bot-prevention/SKILL.md
 mkdir -p ~/.claude/skills/edge-function && curl -sS -o ~/.claude/skills/edge-function/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/edge-function/SKILL.md
+mkdir -p ~/.claude/skills/legal-pages && curl -sS -o ~/.claude/skills/legal-pages/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/legal-pages/SKILL.md
+mkdir -p ~/.claude/skills/exit-intent-survey && curl -sS -o ~/.claude/skills/exit-intent-survey/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/exit-intent-survey/SKILL.md
 mkdir -p ~/.claude/skills/setup-gtm && curl -sS -o ~/.claude/skills/setup-gtm/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/setup-gtm/SKILL.md
 mkdir -p ~/.claude/skills/social-sharing && curl -sS -o ~/.claude/skills/social-sharing/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/social-sharing/SKILL.md
 
@@ -144,6 +149,7 @@ mkdir -p ~/.claude/skills/e2e-tests && curl -sS -o ~/.claude/skills/e2e-tests/SK
 
 # Research & Strategy
 mkdir -p ~/.claude/skills/brand-identity && curl -sS -o ~/.claude/skills/brand-identity/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/brand-identity/SKILL.md
+mkdir -p ~/.claude/skills/business-design && curl -sS -o ~/.claude/skills/business-design/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/business-design/SKILL.md
 mkdir -p ~/.claude/skills/venture-dd && curl -sS -o ~/.claude/skills/venture-dd/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/venture-dd/SKILL.md
 ```
 
