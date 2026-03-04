@@ -197,7 +197,26 @@ Beschreibung...
 - **Darunter:** Draft-Nummer, Name, Beschreibung + Favicon-Previews (nur Icon, klein) rechts
 - **Accent-Bars:** Icon + Markenname auf Primary- und Accent-Farben
 
-Der User wählt sein Lieblings-Logo. Setze es als Favicon ein.
+Der User wählt sein Lieblings-Logo.
+
+#### PFLICHT: Logo & Favicon als Dateien exportieren
+
+Sobald der User sein Logo gewählt hat, speichere **automatisch** (ohne Rückfrage) folgende Dateien in `public/`:
+
+| Datei | Inhalt |
+|---|---|
+| `public/logo.svg` | Gewähltes Logo-Icon als standalone SVG (Primary-Farbe, für dunkle Hintergründe) |
+| `public/logo-dark.svg` | Dasselbe Logo-Icon invertiert (Dark-Farbe, für helle Hintergründe) |
+| `public/logo-with-text.svg` | Logo-Icon + Markenname nebeneinander als SVG |
+| `public/logo-with-text-dark.svg` | Dasselbe invertiert |
+| `public/favicon.svg` | Logo-Icon auf farbigem Hintergrund mit abgerundeten Ecken (32x32 viewBox), optimiert als Browser-Favicon |
+
+Ersetze dabei das bestehende `favicon.ico` in `index.html` durch einen Verweis auf `favicon.svg`:
+```html
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+```
+
+Bestätige dem User kurz welche Dateien gespeichert wurden.
 
 ---
 
