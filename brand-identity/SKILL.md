@@ -55,12 +55,55 @@ Plus **3 Adjektive** für die Marke. Output: kurzes Personality-Profil im Chat, 
 
 **Page bauen:** `/brand/colors` (neutrales Theme)
 
-Basierend auf Phase 1+2, erstelle **3-4 Farbpaletten** als Vorschläge auf der Page:
-- Jede Palette: Primary, Secondary, Accent, Background, Text, Muted
-- Mini-Preview pro Palette (Card, Buttons, oder Mini-Hero)
-- Hell- und Dunkel-Variante
+#### Schritt 1: Farb-Extraktion aus Inspiration
 
-**Copy-Button:** "Ergebnis kopieren" — kopiert gewählte Palette als Markdown in die Zwischenablage.
+Bevor du Paletten erstellst, extrahiere die dominanten Farben aus Phase 1:
+- Analysierte Websites/Screenshots → dominante Hues identifizieren
+- Beschreibungen → passende Hue-Ranges ableiten
+- Fasse zusammen: "Aus deiner Inspiration extrahiere ich folgende Farb-Richtungen: [Hues]"
+
+Diese extrahierten Hues sind der **Ausgangspunkt** — nicht ignorieren und komplett neue Farben erfinden!
+
+#### Schritt 2: Paletten nach Farbtheorie-Harmonien
+
+Erstelle **4 Paletten**, jede basierend auf einer anderen Harmonie-Regel. Nutze die Inspiration-Hues als Basis-Hue:
+
+| Palette | Harmonie | Beschreibung |
+|---------|----------|-------------|
+| A | **Komplementär** | Basis-Hue + gegenüberliegender Hue (±180°) |
+| B | **Analog** | Basis-Hue + benachbarte Hues (±30°) |
+| C | **Split-Komplementär** | Basis-Hue + zwei Hues neben dem Komplement (±150°, ±210°) |
+| D | **Triadisch** | Basis-Hue + zwei Hues im 120°-Abstand |
+
+#### Schritt 3: HSL-basierte systematische Konstruktion
+
+Baue JEDE Palette in HSL, nicht durch Hex-Raten:
+
+```
+Primary:    hsl(H, 65-80%, 45-55%)     — Hauptfarbe, kräftig
+Secondary:  hsl(H2, 50-65%, 50-60%)    — Zweitfarbe aus Harmonie
+Accent:     hsl(H3, 70-90%, 50-60%)    — Highlight, am sattesten
+Background: hsl(H, 10-20%, 97-99%)     — Fast-weiß mit leichtem Farbstich
+Text:       hsl(H, 15-30%, 10-20%)     — Fast-schwarz mit Farbstich
+Muted:      hsl(H, 10-20%, 55-65%)     — Gedämpft für Sekundär-Text
+```
+
+**Regeln:**
+- Sättigung systematisch abstufen (Accent > Primary > Secondary > Muted)
+- Background/Text bekommen einen **leichten Stich** des Primary-Hues — nie reines #FFF/#000
+- WCAG AA Kontrast: Text auf Background ≥ 4.5:1, Primary auf Background ≥ 3:1
+- Personality-Mapping: verspielt → höhere Sättigung, seriös → gedämpfter, warm → Hues 0-60°, cool → Hues 180-270°
+
+#### Schritt 4: Kontext-Previews
+
+Zeige pro Palette **nicht nur Swatches**, sondern eine **Mini-UI**:
+- Hero-Section (H1 + Subtitle + CTA-Button auf Background)
+- Card (mit Border, Heading, Body-Text, Muted-Label)
+- Nav-Bar (Logo-Placeholder + Links + Accent-Button)
+
+Plus: Hell- und Dunkel-Variante jeder Palette.
+
+**Copy-Button:** "Ergebnis kopieren" — kopiert gewählte Palette als Markdown (HSL + Hex) in die Zwischenablage.
 
 Der User wählt seine Palette oder mischt Elemente.
 
