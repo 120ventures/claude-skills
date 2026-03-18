@@ -8,7 +8,13 @@ description: >
 
 # Venture Due Diligence
 
-Strukturierte Due Diligence für Venture-Ideen. Testet 5 kritische Hypothesen mit Web-Research, analysiert Wettbewerb, berechnet Marktgröße und prüft Unit Economics. Output auf Deutsch.
+Strukturierte Due Diligence für Venture-Ideen. Testet 5 kritische Hypothesen mit Web-Research, analysiert Wettbewerb und berechnet Marktgröße. Output auf Deutsch.
+
+## CRITICAL RULES
+
+1. **No speculative early-stage KPIs.** NEVER calculate or present CAC, LTV, LTV:CAC ratio, payback period, or break-even for ventures at idea/pre-revenue stage. These are pure fiction without years of real data. Skip the Unit Economics section entirely unless the venture has actual customer data.
+2. **No scoping assumptions without explicit user approval.** NEVER lock into a target segment (e.g., "Mid-Market only"), geography (e.g., "DACH only"), firm size, or beachhead vertical unless the user explicitly stated it. If a scope decision is needed, ASK first. If the user gives a broad idea, keep the analysis broad.
+3. **Match research to actual business context.** When researching a vertical, ensure the analysis matches the use case. If the platform serves B2B advisory firms, research B2B cases — don't default to B2C data just because it's more available.
 
 ## Checklist
 
@@ -19,7 +25,7 @@ Complete these steps in order:
 - [ ] Phase 3: Hypothesen via Web-Research testen
 - [ ] Phase 4a: Competitor Deep Dive
 - [ ] Phase 4b: TAM/SAM/SOM berechnen
-- [ ] Phase 4c: Unit Economics prüfen
+- [ ] Phase 4c: Unit Economics prüfen (ONLY if venture has real customer data — skip for idea-stage)
 - [ ] Phase 5: Report generieren nach Template
 
 ## Phase 1: Input sammeln
@@ -91,19 +97,17 @@ Vergleiche beide Ergebnisse. Große Abweichungen = Annahmen prüfen.
 
 ## Phase 4c: Unit Economics prüfen
 
-Berechne oder schätze:
+**⚠️ ONLY if the venture has real customer/revenue data.** For idea-stage ventures, SKIP this section entirely. Speculative CAC/LTV/payback calculations for pre-revenue ventures are fiction and will not be included.
+
+If real data exists, assess:
 
 | Metrik | Was |
 |---|---|
-| ARPU | Average Revenue per User (monatlich) |
-| CAC | Customer Acquisition Cost |
-| LTV | Lifetime Value |
-| LTV:CAC | Ratio (Benchmark: >3:1) |
-| Gross Margin | Bruttomarge (%) |
-| Payback Period | Monate bis CAC zurückgezahlt |
-| Break-Even | Wann profitabel |
+| ARPU | Average Revenue per User (monatlich) — from real data |
+| Gross Margin | Bruttomarge (%) — from real data or strong comparable |
+| Revenue Model Viability | Does the pricing model make directional sense given comparable tools? |
 
-Verwende Branchenbenchmarks als Vergleich. Alle Annahmen transparent auflisten.
+Do NOT calculate: CAC, LTV, LTV:CAC ratio, payback period, or break-even unless based on actual customer acquisition data. Benchmarks from comparables are fine for context, but do not fabricate ESODA-specific numbers.
 
 ## Phase 5: Report generieren
 

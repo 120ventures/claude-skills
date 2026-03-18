@@ -120,23 +120,17 @@ Use this template for the final DD report. Fill all sections. All claims need a 
 
 ## Unit Economics
 
+⚠️ **ONLY include this section if the venture has real customer/revenue data.** For idea-stage ventures, SKIP this section entirely. Speculative CAC/LTV calculations are fiction at pre-revenue stage.
+
+If real data exists:
+
 | Metrik | Wert | Benchmark | Bewertung |
 |---|---|---|---|
-| **ARPU** (Monthly) | €[X] | €[Y] Branche | [✅/⚠️/❌] |
-| **CAC** (Customer Acquisition Cost) | €[X] | €[Y] Branche | [✅/⚠️/❌] |
-| **LTV** (Lifetime Value) | €[X] | — | — |
-| **LTV:CAC Ratio** | [X]:1 | >3:1 | [✅/⚠️/❌] |
-| **Gross Margin** | [X]% | [Y]% Branche | [✅/⚠️/❌] |
-| **Payback Period** | [X] Monate | <12 Monate | [✅/⚠️/❌] |
-| **Break-Even** | [Zeitpunkt/Kunden] | — | — |
+| **ARPU** (Monthly) | €[X] — from real data | €[Y] Branche | [✅/⚠️/❌] |
+| **Gross Margin** | [X]% — from real data | [Y]% Branche | [✅/⚠️/❌] |
+| **Revenue Model Viability** | [Does pricing make sense vs. comparables?] | — | [✅/⚠️/❌] |
 
-### Annahmen
-
-[Alle Annahmen transparent auflisten. Welche sind validiert, welche geschätzt?]
-
-### Sensitivitätsanalyse
-
-[Was passiert wenn CAC 2x höher? Wenn Churn 2x höher? Wenn ARPU 50% niedriger?]
+Do NOT fabricate: CAC, LTV, LTV:CAC, payback period, or break-even without actual data.
 
 ---
 

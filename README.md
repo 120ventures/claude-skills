@@ -16,7 +16,7 @@ No packages. No config. No dependencies. Just a `.md` file with structured instr
 
 ## Skills Overview
 
-We have **21 skills** in 7 categories. Each one handles a specific, well-scoped task.
+We have **27 skills** in 9 categories. Each one handles a specific, well-scoped task.
 
 ### Quality Audits (9 skills)
 
@@ -82,7 +82,7 @@ Data-driven analysis across Supabase + Meta Ads. Generates branded PDF reports w
 
 > **Setup required:** This skill needs Meta Marketing API credentials (`ads_read` token) in `~/.claude/.env` and `reportlab` for PDF generation. See [Meta API setup guide](./analyst-report/references/meta-api-setup.md) for details.
 
-### Research & Strategy (3 skills)
+### Research & Strategy (5 skills)
 
 For the very beginning of a new venture — before any code is written.
 
@@ -90,7 +90,27 @@ For the very beginning of a new venture — before any code is written.
 |-------|-------------|---------|
 | [brand-identity](./brand-identity) | Interactive 6-phase brand workshop — inspo, personality, colors, assets, logo, website | `/brand-identity my-project` |
 | [business-design](./business-design) | Interactive business design workshop — venture thesis, lean canvas, hypotheses, validation roadmap, decision matrix | `/business-design` |
-| [venture-dd](./venture-dd) | Structured due diligence — 5 hypotheses, competitor deep dive, TAM/SAM/SOM, unit economics | `/venture-dd` |
+| [idea-cradle](./idea-cradle) | Generate a complete 120 Ventures Idea Cradle entry — research, competitors, market sizing, investment signals | `/idea-cradle` |
+| [venture-dd](./venture-dd) | Structured due diligence — 5 hypotheses, competitor deep dive, TAM/SAM/SOM | `/venture-dd` |
+| [lean-prd](./lean-prd) | Turn customer discovery insights into a lean, shippable PRD — bridging discovery to development | `/lean-prd` |
+
+### Go-to-Market & Sales (3 skills)
+
+Customer discovery, outreach, and GTM infrastructure — from first interview to first pipeline.
+
+| Skill | What it does | Example |
+|-------|-------------|---------|
+| [customer-discovery](./customer-discovery) | Design interview guides, generate questions, synthesize insights, refine ICPs, validate hypotheses | `/customer-discovery` |
+| [sales-outreach](./sales-outreach) | Write cold emails, design sequences, craft messaging and positioning, handle objections | `/sales-outreach` |
+| [gtm-engineering](./gtm-engineering) | Lead enrichment, pipeline automation, signal monitoring, Clay workflows, creative outbound plays | `/gtm-engineering` |
+
+### Build & Ship (1 skill)
+
+Move fast from idea to testable artifact.
+
+| Skill | What it does | Example |
+|-------|-------------|---------|
+| [mvp-builder](./mvp-builder) | Build MVPs, prototypes, landing pages, waitlists — shipping fast for validation | `/mvp-builder` |
 
 ---
 
@@ -108,10 +128,10 @@ mkdir -p ~/.claude/skills/SKILL_NAME && curl -sS -o ~/.claude/skills/SKILL_NAME/
 
 Then open Claude Code and type `/SKILL_NAME` to run it.
 
-### Install all 21 skills
+### Install all 27 skills
 
 ```bash
-for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit bot-prevention edge-function legal-pages exit-intent-survey setup-gtm social-sharing pre-deploy e2e-tests brand-identity business-design venture-dd analyst-report; do
+for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit bot-prevention edge-function legal-pages exit-intent-survey setup-gtm social-sharing pre-deploy e2e-tests brand-identity business-design idea-cradle venture-dd lean-prd customer-discovery sales-outreach gtm-engineering mvp-builder analyst-report; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
@@ -162,7 +182,17 @@ mkdir -p ~/.claude/skills/e2e-tests && curl -sS -o ~/.claude/skills/e2e-tests/SK
 # Research & Strategy
 mkdir -p ~/.claude/skills/brand-identity && curl -sS -o ~/.claude/skills/brand-identity/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/brand-identity/SKILL.md
 mkdir -p ~/.claude/skills/business-design && curl -sS -o ~/.claude/skills/business-design/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/business-design/SKILL.md
+mkdir -p ~/.claude/skills/idea-cradle && curl -sS -o ~/.claude/skills/idea-cradle/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/idea-cradle/SKILL.md
 mkdir -p ~/.claude/skills/venture-dd && curl -sS -o ~/.claude/skills/venture-dd/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/venture-dd/SKILL.md
+mkdir -p ~/.claude/skills/lean-prd && curl -sS -o ~/.claude/skills/lean-prd/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/lean-prd/SKILL.md
+
+# Go-to-Market & Sales
+mkdir -p ~/.claude/skills/customer-discovery && curl -sS -o ~/.claude/skills/customer-discovery/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/customer-discovery/SKILL.md
+mkdir -p ~/.claude/skills/sales-outreach && curl -sS -o ~/.claude/skills/sales-outreach/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/sales-outreach/SKILL.md
+mkdir -p ~/.claude/skills/gtm-engineering && curl -sS -o ~/.claude/skills/gtm-engineering/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/gtm-engineering/SKILL.md
+
+# Build & Ship
+mkdir -p ~/.claude/skills/mvp-builder && curl -sS -o ~/.claude/skills/mvp-builder/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/mvp-builder/SKILL.md
 
 # Analytics & Reporting (requires additional setup)
 git clone --depth 1 --filter=blob:none --sparse https://github.com/120ventures/claude-skills.git /tmp/cs-install && \
