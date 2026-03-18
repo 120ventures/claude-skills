@@ -16,7 +16,7 @@ No packages. No config. No dependencies. Just a `.md` file with structured instr
 
 ## Skills Overview
 
-We have **20 skills** in 6 categories. Each one handles a specific, well-scoped task.
+We have **21 skills** in 7 categories. Each one handles a specific, well-scoped task.
 
 ### Quality Audits (9 skills)
 
@@ -72,6 +72,16 @@ Pre-launch checks and test generation. Run `/pre-deploy` before every push. Run 
 | [pre-deploy](./pre-deploy) | Pre-deployment checklist — types, build, lint, env vars, security, git status | `/pre-deploy` |
 | [e2e-tests](./e2e-tests) | Generate Playwright E2E tests for a page or feature | `/e2e-tests landing-page` |
 
+### Analytics & Reporting (1 skill)
+
+Data-driven analysis across Supabase + Meta Ads. Generates branded PDF reports with traffic analysis, campaign performance, funnel breakdowns, and actionable recommendations.
+
+| Skill | What it does | Example |
+|-------|-------------|---------|
+| [analyst-report](./analyst-report) | Nutzerverhalten-Analyse — pulls Supabase dashboard + Meta Marketing API data, generates branded PDF report with interpretation and recommendations | `/analyst-report` |
+
+> **Setup required:** This skill needs Meta Marketing API credentials (`ads_read` token) in `~/.claude/.env` and `reportlab` for PDF generation. See [Meta API setup guide](./analyst-report/references/meta-api-setup.md) for details.
+
 ### Research & Strategy (3 skills)
 
 For the very beginning of a new venture — before any code is written.
@@ -98,15 +108,17 @@ mkdir -p ~/.claude/skills/SKILL_NAME && curl -sS -o ~/.claude/skills/SKILL_NAME/
 
 Then open Claude Code and type `/SKILL_NAME` to run it.
 
-### Install all 20 skills
+### Install all 21 skills
 
 ```bash
-for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit bot-prevention edge-function legal-pages exit-intent-survey setup-gtm social-sharing pre-deploy e2e-tests brand-identity business-design venture-dd; do
+for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit bot-prevention edge-function legal-pages exit-intent-survey setup-gtm social-sharing pre-deploy e2e-tests brand-identity business-design venture-dd analyst-report; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
 done
 ```
+
+> **Note:** `analyst-report` has additional files (Python script, fonts, references). Install it separately — see below.
 
 ### Install just the audits
 
@@ -151,6 +163,14 @@ mkdir -p ~/.claude/skills/e2e-tests && curl -sS -o ~/.claude/skills/e2e-tests/SK
 mkdir -p ~/.claude/skills/brand-identity && curl -sS -o ~/.claude/skills/brand-identity/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/brand-identity/SKILL.md
 mkdir -p ~/.claude/skills/business-design && curl -sS -o ~/.claude/skills/business-design/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/business-design/SKILL.md
 mkdir -p ~/.claude/skills/venture-dd && curl -sS -o ~/.claude/skills/venture-dd/SKILL.md https://raw.githubusercontent.com/120ventures/claude-skills/main/venture-dd/SKILL.md
+
+# Analytics & Reporting (requires additional setup)
+git clone --depth 1 --filter=blob:none --sparse https://github.com/120ventures/claude-skills.git /tmp/cs-install && \
+  cd /tmp/cs-install && git sparse-checkout set analyst-report && \
+  cp -r analyst-report ~/.claude/skills/ && rm -rf /tmp/cs-install
+pip3 install reportlab
+# Then add META_ACCESS_TOKEN and META_AD_ACCOUNT_ID to ~/.claude/.env
+# See ~/.claude/skills/analyst-report/references/meta-api-setup.md
 ```
 
 </details>
