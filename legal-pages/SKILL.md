@@ -5,9 +5,11 @@ description: Use when creating or updating legal pages for a website — Datensc
 
 # Legal Pages — Austrian Legal Page Generator
 
-This skill generates DSGVO-compliant legal pages for 120 Ventures web projects: Datenschutzerklärung, Impressum, AGB, and Cookie-Hinweis. It scans the codebase for third-party tools, gathers project-specific variables, and creates complete legal pages matching the project's existing patterns.
+This skill generates or updates DSGVO-compliant legal pages for 120 Ventures web projects: Datenschutzerklärung, Impressum, AGB, and Cookie-Hinweis. It scans the codebase for third-party tools, gathers project-specific variables, and creates or updates legal pages matching the project's existing patterns.
 
 No arguments needed. Just run `/legal-pages` and the skill handles everything.
+
+**Create or Update:** If legal pages already exist, the skill updates them to reflect the current tool stack and project state (new tools added, old references removed, dates updated). It does NOT ask whether to create or update — it always scans and produces the correct, current version automatically.
 
 **Difference from `/legal-audit`:**
 - `/legal-audit` **audits** an existing website for legal compliance issues and flags violations
