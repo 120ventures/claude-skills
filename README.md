@@ -16,7 +16,7 @@ No packages. No config. No dependencies. Just a `.md` file with structured instr
 
 ## Skills Overview
 
-We have **27 skills** in 9 categories. Each one handles a specific, well-scoped task.
+We have **28 skills** in 9 categories. Each one handles a specific, well-scoped task.
 
 ### Quality Audits (9 skills)
 
@@ -72,15 +72,16 @@ Pre-launch checks and test generation. Run `/pre-deploy` before every push. Run 
 | [pre-deploy](./pre-deploy) | Pre-deployment checklist — types, build, lint, env vars, security, git status | `/pre-deploy` |
 | [e2e-tests](./e2e-tests) | Generate Playwright E2E tests for a page or feature | `/e2e-tests landing-page` |
 
-### Analytics & Reporting (1 skill)
+### Analytics & Reporting (2 skills)
 
-Data-driven analysis across Supabase + Meta Ads. Generates branded PDF reports with traffic analysis, campaign performance, funnel breakdowns, and actionable recommendations.
+Data-driven analysis across Supabase + Meta Ads + GA4 + PostHog. Generates branded PDF reports with traffic analysis, campaign performance, funnel breakdowns, and actionable recommendations.
 
 | Skill | What it does | Example |
 |-------|-------------|---------|
 | [analyst-report](./analyst-report) | Nutzerverhalten-Analyse — pulls Supabase dashboard + Meta Marketing API data, generates branded PDF report with interpretation and recommendations | `/analyst-report` |
+| [venture-learnings](./venture-learnings) | Venture post-mortem — pulls data from Supabase, Meta, GA4, Google Ads, PostHog, generates branded PDF with what worked, what didn't, market insights, and recommendations for future ventures | `/venture-learnings` |
 
-> **Setup required:** This skill needs Meta Marketing API credentials (`ads_read` token) in `~/.claude/.env` and `reportlab` for PDF generation. See [Meta API setup guide](./analyst-report/references/meta-api-setup.md) for details.
+> **Setup required:** These skills need Meta Marketing API credentials (`ads_read` token) in `~/.claude/.env` and `reportlab` for PDF generation. See [Meta API setup guide](./analyst-report/references/meta-api-setup.md) for details. `venture-learnings` shares fonts with `analyst-report`.
 
 ### Research & Strategy (5 skills)
 
@@ -128,17 +129,17 @@ mkdir -p ~/.claude/skills/SKILL_NAME && curl -sS -o ~/.claude/skills/SKILL_NAME/
 
 Then open Claude Code and type `/SKILL_NAME` to run it.
 
-### Install all 27 skills
+### Install all 28 skills
 
 ```bash
-for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit bot-prevention edge-function legal-pages exit-intent-survey setup-gtm social-sharing pre-deploy e2e-tests brand-identity business-design idea-cradle venture-dd lean-prd customer-discovery sales-outreach gtm-engineering mvp-builder analyst-report; do
+for skill in ux-audit ui-audit cro-audit at-copy-audit mobile-audit accessibility-audit legal-audit health-claims-audit security-audit bot-prevention edge-function legal-pages exit-intent-survey setup-gtm social-sharing pre-deploy e2e-tests brand-identity business-design idea-cradle venture-dd lean-prd customer-discovery sales-outreach gtm-engineering mvp-builder analyst-report venture-learnings; do
   mkdir -p ~/.claude/skills/$skill
   curl -sS -o ~/.claude/skills/$skill/SKILL.md \
     https://raw.githubusercontent.com/120ventures/claude-skills/main/$skill/SKILL.md
 done
 ```
 
-> **Note:** `analyst-report` has additional files (Python script, fonts, references). Install it separately — see below.
+> **Note:** `analyst-report` and `venture-learnings` have additional files (Python scripts, fonts, references). Install them separately — see below.
 
 ### Install just the audits
 
@@ -196,8 +197,10 @@ mkdir -p ~/.claude/skills/mvp-builder && curl -sS -o ~/.claude/skills/mvp-builde
 
 # Analytics & Reporting (requires additional setup)
 git clone --depth 1 --filter=blob:none --sparse https://github.com/120ventures/claude-skills.git /tmp/cs-install && \
-  cd /tmp/cs-install && git sparse-checkout set analyst-report && \
-  cp -r analyst-report ~/.claude/skills/ && rm -rf /tmp/cs-install
+  cd /tmp/cs-install && git sparse-checkout set analyst-report venture-learnings && \
+  cp -r analyst-report venture-learnings ~/.claude/skills/ && rm -rf /tmp/cs-install
+# venture-learnings shares fonts with analyst-report
+ln -sf ~/.claude/skills/analyst-report/fonts ~/.claude/skills/venture-learnings/fonts
 pip3 install reportlab
 # Then add META_ACCESS_TOKEN and META_AD_ACCOUNT_ID to ~/.claude/.env
 # See ~/.claude/skills/analyst-report/references/meta-api-setup.md
