@@ -37,23 +37,27 @@ Am Ende: **Inspo-Essenz** zusammenfassen — gemeinsame Muster, Stimmung, Stilri
 
 ### Phase 2: Brand Personality
 
-**Keine Page** — Chat-basiert.
+**Keine Page** — Quiz-basiert via `AskUserQuestion`.
 
-Per `AskUserQuestion` alle Spektren auf einmal abfragen (je 5 Positionen):
-- Verspielt ←→ Seriös
-- Modern ←→ Klassisch
-- Minimalistisch ←→ Üppig/Maximal
-- Warm ←→ Cool
-- Intim/Privat ←→ Offen/Community
-- Handgemacht ←→ Digital/Clean
+**WICHTIG:** Keine Markdown-Tabellen oder Text-Spektren! Nutze `AskUserQuestion` mit konkreten, gut beschriebenen Optionen als interaktives Quiz. Maximal 4 Fragen pro AskUserQuestion-Call (Tool-Limit). Bei Bedarf in 2 Calls aufteilen.
 
-Plus **3 Adjektive** für die Marke. Output: kurzes Personality-Profil im Chat, dann direkt weiter.
+**Quiz-Fragen (via AskUserQuestion):**
+1. **Tonalität** — Wie wirkt die Marke auf Nutzer:innen? (verspielt / ausgewogen / seriös)
+2. **Stil** — Wie fühlt sich das Design an? (modern / modern-warm / zeitlos-elegant)
+3. **Dichte** — Wie viel visuelles Rauschen? (minimal / ausgewogen / content-reich)
+4. **Adjektive** — Welche 3 Adjektive beschreiben die Marke? (3-4 vorgefertigte Kombis als Optionen)
+
+Jede Option braucht ein kurzes `description`-Feld das die Wahl greifbar macht (z.B. "Wie eine empathische Ärztin" statt nur "Ausgewogen").
+
+Output: kurzes Personality-Profil im Chat, dann direkt weiter.
 
 ---
 
 ### Phase 3: Brand Colors
 
-**Page bauen:** `/brand/colors` (neutrales Theme)
+**IMMER eine Page bauen:** `/brand/colors` (neutrales Inline-Theme)
+
+**WICHTIG:** Farben NIEMALS nur als Text/Markdown zeigen! IMMER eine React-Page mit visuellen Previews bauen. Der User muss Farben SEHEN können, nicht lesen.
 
 #### Schritt 1: Farb-Extraktion aus Inspiration
 
@@ -94,18 +98,20 @@ Muted:      hsl(H, 10-20%, 55-65%)     — Gedämpft für Sekundär-Text
 - WCAG AA Kontrast: Text auf Background ≥ 4.5:1, Primary auf Background ≥ 3:1
 - Personality-Mapping: verspielt → höhere Sättigung, seriös → gedämpfter, warm → Hues 0-60°, cool → Hues 180-270°
 
-#### Schritt 4: Kontext-Previews
+#### Schritt 4: Kontext-Previews (AUF DER PAGE!)
 
-Zeige pro Palette **nicht nur Swatches**, sondern eine **Mini-UI**:
-- Hero-Section (H1 + Subtitle + CTA-Button auf Background)
-- Card (mit Border, Heading, Body-Text, Muted-Label)
-- Nav-Bar (Logo-Placeholder + Links + Accent-Button)
+Die Page MUSS pro Palette zeigen:
+- **Farbfelder (Swatches)** mit Label + Hex
+- **Mini-Hero** (H1 + Subtitle + CTA-Button auf Background — mit Projekt-Fonts!)
+- **Mini-Card** (Border, Heading, Body-Text, Muted-Label, Stat)
+- **Mini-NavBar** (Logo-Placeholder + Links + Accent-Button)
+- **Dark Mode Preview** (Text-BG invertiert)
 
-Plus: Hell- und Dunkel-Variante jeder Palette.
+Jede Palette ist eine klickbare Card. Ausgewählte Palette bekommt einen visuellen Highlight.
 
-**Copy-Button:** "Ergebnis kopieren" — kopiert gewählte Palette als Markdown (HSL + Hex) in die Zwischenablage.
+**Copy-Button:** Sticky am unteren Rand — kopiert gewählte Palette als Markdown (HSL + Hex) in die Zwischenablage.
 
-Der User wählt seine Palette oder mischt Elemente.
+Route zur Page registrieren in App.tsx! User wählt durch Klick + Kopieren.
 
 ---
 
